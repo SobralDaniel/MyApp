@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DBTrespo/DBTrespo.iml" filepath="$PROJECT_DIR$/DBTrespo/DBTrespo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/academy2018.iml" filepath="$PROJECT_DIR$/academy2018.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DBTrespo.iml" filepath="$PROJECT_DIR$/DBTrespo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
