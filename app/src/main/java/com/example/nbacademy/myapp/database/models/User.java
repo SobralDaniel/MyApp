@@ -2,6 +2,10 @@ package com.example.nbacademy.myapp.database.models;
 
 import com.example.nbacademy.myapp.database.api.IUser;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by nbacademy on 09/03/2018.
  */
@@ -9,6 +13,7 @@ public class User implements IUser {
 
     private int id, age;
     private String name, phoneNumber, nif, password, email;
+    private Map<Integer,Trip> trips;
 
     @Override
     public int getId() {
@@ -73,6 +78,25 @@ public class User implements IUser {
     @Override
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public List<Trip> getTrips() {
+        return new ArrayList<Trip>(trips.values());
+    }
+
+    @Override
+    public boolean addTrip(Trip trip) {
+        if(trip != null && !trips.containsKey(trip.getId())){
+            trips.put(trip.getId(),trip);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean removeTrip(int id) {
+        return trips.remove(id) != null ? true : false;
     }
 
     @Override
