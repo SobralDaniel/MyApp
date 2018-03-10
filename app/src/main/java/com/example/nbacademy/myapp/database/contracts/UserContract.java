@@ -13,10 +13,9 @@ public final class UserContract {
 
     public static class UserEntry implements BaseColumns {
 
-        private static final String TABLE_NAME = "trip";
+        private static final String TABLE_NAME = "user";
         private static final String COLUMN_NAME_NAME = "name";
         private static final String COLUMN_NAME_PHONE_NUMBER = "phone_number";
-        private static final String COLUMN_NAME_NUM_PEOPLE = "num_people";
         private static final String COLUMN_NAME_AGE = "age";
         private static final String COLUMN_NAME_NIF = "nif";
         private static final String COLUMN_NAME_PASSWORD = "password";
