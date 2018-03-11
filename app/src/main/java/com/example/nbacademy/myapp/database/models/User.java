@@ -1,8 +1,14 @@
 package com.example.nbacademy.myapp.database.models;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.example.nbacademy.myapp.database.DBHelper;
 import com.example.nbacademy.myapp.database.api.IUser;
+import com.example.nbacademy.myapp.database.contracts.UserContract;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +20,10 @@ public class User implements IUser {
     private int id, age;
     private String name, phoneNumber, nif, password, email;
     private Map<Integer,Trip> trips;
+
+    public User(){
+        trips = new HashMap<Integer,Trip>();
+    }
 
     @Override
     public int getId() {
@@ -101,6 +111,18 @@ public class User implements IUser {
 
     @Override
     public boolean create() {
+        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0);
+
+        ContentValues values = new ContentValues();
+        values.put(UserContract.UserEntry.COLUMN_NAME_NAME,name);
+        values.put(UserContract.UserEntry.COLUMN_NAME_PHONE_NUMBER,phoneNumber);
+        values.put(UserContract.UserEntry.COLUMN_NAME_AGE,age);
+        values.put(UserContract.UserEntry.COLUMN_NAME_NIF,nif);
+        values.put(UserContract.UserEntry.COLUMN_NAME_PASSWORD,password);
+        values.put(UserContract.UserEntry.COLUMN_NAME_EMAIL,email);
+
+        db.insert(UserContract.UserEntry.TABLE_NAME,null,values);
+
         return false;
     }
 
