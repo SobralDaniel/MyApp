@@ -18,8 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TripDetailsActivity"></activity>
-        <activity android:name=".TripCategoriesActivity"></activity>
+        <activity android:name=".TripDetailsActivity" />
+        <activity android:name=".TripCategoriesActivity" />
+        <activity android:name=".DestinyActivity" />
+        <activity android:name=".NewDestinyActivity" />
+        <activity android:name=".PaymentActivity" />
     </application>
 
 </manifest>
