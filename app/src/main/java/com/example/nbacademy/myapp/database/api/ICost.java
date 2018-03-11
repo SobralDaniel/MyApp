@@ -9,29 +9,9 @@ public interface ICost extends ITable {
 
     int getId();
 
-    int getCategoryId();
-
-    void setCategoryId(int categoryId);
-
-    int getDestinationId();
-
-    void setDestinationId(int destinationId);
-
-    int getDurationInDays();
-
-    void setDurationInDays(int durationInDays);
-
-    int getTripDay();
-
-    void setTripDay(int tripDay);
-
     float getUnitValue();
 
     void setUnitValue(float unitValue);
-
-    float getExpectedCost();
-
-    void setExpectedCost(float expectedCost);
 
     String getCurrency();
 
@@ -44,4 +24,16 @@ public interface ICost extends ITable {
     Date getDate();
 
     void setDate(Date date);
+
+    int getNumPeople();
+
+    void setNumPeople(int numPeople);
+
+    int getActivityId();
+
+    void setActivityId(int activityId);
+
+    float getTotalExpectedCost();
+
+    void setTotalExpectedCost(float totalExpectedCost);
 }
