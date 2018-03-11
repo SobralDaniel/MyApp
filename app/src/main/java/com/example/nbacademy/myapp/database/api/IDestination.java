@@ -1,5 +1,6 @@
 package com.example.nbacademy.myapp.database.api;
 
+import java.lang.reflect.Array;
 import java.util.Date;
 
 /**
@@ -12,17 +13,17 @@ public interface IDestination extends ITable {
 
     Date getInitialDate();
 
-    void setInitialDate (Date date1);
+    void setInitialDate (Date initialDate);
 
     Date getFinalDate();
 
-    void setFinalDate (Date date2);
+    void setFinalDate (Date finalDate);
 
-    Double getMealCost ();
+    double getMealCost ();
 
     void setMealCost (Double mealCost);
 
-    Double getHostCost();
+    double getHostCost();
 
     void setHostCost (Double hostCost);
 
@@ -30,19 +31,21 @@ public interface IDestination extends ITable {
 
     void setCurrency (String currency);
 
-    Float getCurrencyValue();
+    double getCurrencyValue();
 
-    void setCurrencyValue (Float currencyValue);
+    void setCurrencyValue (double currencyValue);
 
     String getTimezone ();
 
     void setTimezone (String timezone);
 
-    String getTemperature();
+    double getTemperature();
 
-    void setTemperature (String temperature);
+    void setTemperature (double temperature);
 
     int getTripId();
+
+    void setTripId (int tripId);
 
     int getPercLunch();
 
@@ -60,9 +63,12 @@ public interface IDestination extends ITable {
 
     void setPercExtras(int percExtras);
 
-    int getDestinationId();
-
-    String destinationName();
-
     void setDestinationName (String destinationName);
+
+    ICategory[] getCategories();
+
+    boolean addCategory  (ICategory category);
+
+    boolean removeCategory (String categoryName);
+
 }
