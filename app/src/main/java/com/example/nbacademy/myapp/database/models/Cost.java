@@ -9,54 +9,14 @@ import java.util.Date;
  */
 public class Cost implements ICost {
 
-    private int id, categoryId, destinationId, durationInDays, tripDay;
-    private float unitValue, expectedCost;
+    private int id, numPeople, activityId;
+    private float unitValue, totalExpectedCost;
     private String currency, subCategory;
     private Date date;
 
     @Override
     public int getId() {
         return id;
-    }
-
-    @Override
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    @Override
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    @Override
-    public int getDestinationId() {
-        return destinationId;
-    }
-
-    @Override
-    public void setDestinationId(int destinationId) {
-        this.destinationId = destinationId;
-    }
-
-    @Override
-    public int getDurationInDays() {
-        return durationInDays;
-    }
-
-    @Override
-    public void setDurationInDays(int durationInDays) {
-        this.durationInDays = durationInDays;
-    }
-
-    @Override
-    public int getTripDay() {
-        return tripDay;
-    }
-
-    @Override
-    public void setTripDay(int tripDay) {
-        this.tripDay = tripDay;
     }
 
     @Override
@@ -67,16 +27,6 @@ public class Cost implements ICost {
     @Override
     public void setUnitValue(float unitValue) {
         this.unitValue = unitValue;
-    }
-
-    @Override
-    public float getExpectedCost() {
-        return expectedCost;
-    }
-
-    @Override
-    public void setExpectedCost(float expectedCost) {
-        this.expectedCost = expectedCost;
     }
 
     @Override
@@ -107,6 +57,36 @@ public class Cost implements ICost {
     @Override
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public int getNumPeople() {
+        return numPeople;
+    }
+
+    @Override
+    public void setNumPeople(int numPeople) {
+        this.numPeople = numPeople;
+    }
+
+    @Override
+    public int getActivityId() {
+        return activityId;
+    }
+
+    @Override
+    public void setActivityId(int activityId) {
+        this.activityId = activityId;
+    }
+
+    @Override
+    public float getTotalExpectedCost() {
+        return totalExpectedCost;
+    }
+
+    @Override
+    public void setTotalExpectedCost(float totalExpectedCost) {
+        this.totalExpectedCost = totalExpectedCost;
     }
 
     @Override

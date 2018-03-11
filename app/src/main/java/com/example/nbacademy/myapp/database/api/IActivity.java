@@ -1,5 +1,7 @@
 package com.example.nbacademy.myapp.database.api;
 
+import java.util.Date;
+
 /**
  * Created by nbacademy on 08/03/2018.
  */
@@ -23,9 +25,9 @@ public interface IActivity extends ITable {
 
     void setPrice(float price);
 
-    int getAgencyId();
+    int getCategoryId();
 
-    void setAgencyId(int agencyId);
+    void setCategoryId(int agencyId);
 
     float getRanking();
 
@@ -35,7 +37,15 @@ public interface IActivity extends ITable {
 
     void setPromotion(Boolean promotion);
 
-    long getDuration();
+    Date getStartDate();
 
-    void setDuration(long duration);
+    void setStartDate(Date startDate);
+
+    Date getEndDate();
+
+    void setEndDate(Date endDate);
+
+    ICost getCost();
+
+    void setCost(ICost cost);
 }
