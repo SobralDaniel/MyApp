@@ -18,10 +18,10 @@ public final class ActivityContract {
         private static final String COLUMN_NAME_NAME = "name";
         private static final String COLUMN_NAME_PRICE = "price";
         private static final String COLUMN_NAME_ADDRESS = "adress";
-        private static final String COLUMN_NAME_DURATION = "duration";
+        private static final String COLUMN_NAME_START_DATE = "start_date";
+        private static final String COLUMN_NAME_END_DATE = "end_date";
         private static final String COLUMN_NAME_RANKING = "ranking";
         private static final String COLUMN_NAME_TYPE = "type";
-        private static final String COLUMN_NAME_FK_AGENCY = "fk_agency";
-        private static final String COLUMN_NAME_FK_TRIP_ID = "fk_trip_id";
+        private static final String COLUMN_NAME_FK_CATEGORY_ID = "fk_category_id";
     }
 }

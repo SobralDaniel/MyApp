@@ -11,7 +11,7 @@ public final class DestinationContract {
 
     }
 
-    public static class TripEntry implements BaseColumns {
+    public static class DestinationEntry implements BaseColumns {
 
         private static final String TABLE_NAME = "destination";
         private static final String COLUMN_NAME_NAME = "name";
@@ -27,7 +27,7 @@ public final class DestinationContract {
         private static final String COLUMN_NAME_ST_DINNER = "st_dinner";//Percentage
         private static final String COLUMN_NAME_ST_PURCHASE = "st_purchase";//Percentage
         private static final String COLUMN_NAME_ST_EXTRA = "st_extra";//Logica de ligacao
-        private static final String COLUMN_NAME_FK_TRIPID = "fk_tripid";
+        private static final String COLUMN_NAME_FK_TRIP_ID = "fk_trip_id";
 
     }
 }

@@ -23,7 +23,7 @@ public final class TripContract {
         private static final String COLUMN_NAME_TYPE = "type";
         private static final String COLUMN_NAME_STATUS = "status";//Logica de ligacao
         private static final String COLUMN_NAME_TOTAL_BUDGET = "total_budget";
-        private static final String COLUMN_NAME_FK_USERID = "fk_userid";
+        private static final String COLUMN_NAME_FK_USER_ID = "fk_user_id";
 
     }
 }
