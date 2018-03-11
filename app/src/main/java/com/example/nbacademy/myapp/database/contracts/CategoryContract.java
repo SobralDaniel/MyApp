@@ -16,6 +16,5 @@ public final class CategoryContract {
         private static final String TABLE_NAME = "category";
         private static final String COLUMN_NAME_NAME = "name";
         private static final String COLUMN_NAME_FK_DESTINATION_ID = "fk_destination_id";
-
     }
 }
