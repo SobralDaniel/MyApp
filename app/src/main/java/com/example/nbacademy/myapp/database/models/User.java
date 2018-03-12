@@ -111,7 +111,7 @@ public class User implements IUser {
 
     @Override
     public boolean create() {
-        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0);
+       // SQLiteDatabase db = DBHelper.getInstance(null,null,null,0);
 
         ContentValues values = new ContentValues();
         values.put(UserContract.UserEntry.COLUMN_NAME_NAME,name);
@@ -121,7 +121,7 @@ public class User implements IUser {
         values.put(UserContract.UserEntry.COLUMN_NAME_PASSWORD,password);
         values.put(UserContract.UserEntry.COLUMN_NAME_EMAIL,email);
 
-        db.insert(UserContract.UserEntry.TABLE_NAME,null,values);
+//        db.insert(UserContract.UserEntry.TABLE_NAME,null,values);
 
         return false;
     }

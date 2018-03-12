@@ -15,7 +15,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static DBHelper dbHelperInstance;
 
-    private static final String DB_CREATION_QUERY = "CREATE TABLE " + UserContract.UserEntry.TABLE_NAME + " (" +
+   /** private static final String DB_CREATION_QUERY = "CREATE TABLE " + UserContract.UserEntry.TABLE_NAME + " (" +
             UserContract.UserEntry._ID + " INTEGER PRIMARY KEY," +
             UserContract.UserEntry.COLUMN_NAME_NAME + " TEXT, " +
             UserContract.UserEntry.COLUMN_NAME_AGE + " INTEGER, " +
@@ -31,7 +31,7 @@ public class DBHelper extends SQLiteOpenHelper {
             TripContract.TripEntry.COLUMN_NAME_NIF + " TEXT, " +
             TripContract.TripEntry.COLUMN_NAME_PASSWORD + " TEXT, " +
             TripContract.TripEntry.COLUMN_NAME_EMAIL + " TEXT, " +
-            TripContract.TripEntry.COLUMN_NAME_PHONE_NUMBER + " TEXT)," +;
+            TripContract.TripEntry.COLUMN_NAME_PHONE_NUMBER + " TEXT),";*/
 
     public static DBHelper getInstance(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
         if(dbHelperInstance == null)

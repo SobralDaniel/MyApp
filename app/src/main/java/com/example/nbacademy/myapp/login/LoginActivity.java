@@ -111,14 +111,14 @@ public class LoginActivity extends AppCompatActivity implements FacebookListener
 
         // TODO: Implement your own authentication logic here.
 
-        IUser u = null;
+        /*IUser u = null;
         u = !findEmail(email);
 
         if (u == null)
         //username does not exist
         else if (!u.getPassword().equals(password)) //check password
         //password dont match
-        else //do login, goto activity
+        else //do login, goto activity*/
 
 
         new android.os.Handler().postDelayed(
@@ -133,7 +133,7 @@ public class LoginActivity extends AppCompatActivity implements FacebookListener
     }
 
 
-    @Override
+        @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_SIGNUP) {
             if (resultCode == RESULT_OK) {
