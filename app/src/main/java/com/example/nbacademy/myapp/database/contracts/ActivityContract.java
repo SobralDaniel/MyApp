@@ -14,14 +14,14 @@ public final class ActivityContract {
     /*Inner class representing a table*/
     public static class ActivityEntry implements BaseColumns{
 
-        private static final String TABLE_NAME = "activity";
-        private static final String COLUMN_NAME_NAME = "name";
-        private static final String COLUMN_NAME_PRICE = "price";
-        private static final String COLUMN_NAME_ADDRESS = "adress";
-        private static final String COLUMN_NAME_START_DATE = "start_date";
-        private static final String COLUMN_NAME_END_DATE = "end_date";
-        private static final String COLUMN_NAME_RANKING = "ranking";
-        private static final String COLUMN_NAME_TYPE = "type";
-        private static final String COLUMN_NAME_FK_CATEGORY_ID = "fk_category_id";
+        public static final String TABLE_NAME = "activity";
+        public static final String COLUMN_NAME_NAME = "name";
+        public static final String COLUMN_NAME_PRICE = "price";
+        public static final String COLUMN_NAME_ADDRESS = "adress";
+        public static final String COLUMN_NAME_START_DATE = "start_date";
+        public static final String COLUMN_NAME_END_DATE = "end_date";
+        public static final String COLUMN_NAME_RANKING = "ranking";
+        public static final String COLUMN_NAME_TYPE = "type";
+        public static final String COLUMN_NAME_FK_CATEGORY_ID = "fk_category_id";
     }
 }
