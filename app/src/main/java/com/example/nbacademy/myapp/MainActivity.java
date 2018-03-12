@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,16 +25,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-        Button addTrip = (Button) findViewById(R.id.addTrip);
+        ImageView addTrip = (ImageView) findViewById(R.id.addTrip);
+        ImageView buttonDelete = (ImageView) findViewById(R.id.buttonDelete);
 
         final Intent myIntent = new Intent(this, TripDetailsActivity.class);
 
@@ -44,6 +37,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                //TODO eliminar o elemento da lista
+            }
+        });
+
     }
 
     @Override

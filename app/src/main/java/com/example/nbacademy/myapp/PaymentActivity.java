@@ -5,19 +5,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 
 public class PaymentActivity extends AppCompatActivity {
 
+    public boolean oneIsChecked = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
-        Button backButton = (Button) findViewById(R.id.backButton);
+        Button backButton = (Button) findViewById(R.id.doneButton);
         Button nextButton = (Button) findViewById(R.id.nextButton);
-        Button paymentButton = (Button) findViewById(R.id.payment);
-        Button moneyButton = (Button) findViewById(R.id.money);
-        Button cardVisaButton = (Button) findViewById(R.id.visa_card);
+        final RadioButton moneyButton = (RadioButton) findViewById(R.id.moneyButton);
+        final RadioButton cardVisaButton = (RadioButton) findViewById(R.id.visaCardButton);
 
         final Intent backIntent = new Intent(this, DestinyActivity.class);
 
@@ -39,21 +40,13 @@ public class PaymentActivity extends AppCompatActivity {
             }
         });
 
-        paymentButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                //TODO
-
-            }
-        });
-
         moneyButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-
-                //TODO
+                if(moneyButton.isChecked() && !cardVisaButton.isChecked()){
+                    oneIsChecked = true;
+                }else oneIsChecked = false;
             }
         });
 
@@ -61,8 +54,9 @@ public class PaymentActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-
-                //TODO
+                if(cardVisaButton.isChecked() && !moneyButton.isChecked()){
+                    oneIsChecked = true;
+                }else oneIsChecked = false;
             }
         });
     }

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class DestinyActivity extends AppCompatActivity {
 
@@ -13,8 +14,8 @@ public class DestinyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_destiny);
 
-        Button addDestiny = (Button) findViewById(R.id.addDestiny);
-        Button backButton = (Button) findViewById(R.id.backButton);
+        ImageView addDestiny = (ImageView) findViewById(R.id.addDestiny);
+        Button backButton = (Button) findViewById(R.id.doneButton);
         Button nextButton = (Button) findViewById(R.id.nextButton);
 
         final Intent addDestinyIntent = new Intent(this, NewDestinyActivity.class);
@@ -23,6 +24,7 @@ public class DestinyActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                //TODO
                 startActivity(addDestinyIntent);
             }
         });

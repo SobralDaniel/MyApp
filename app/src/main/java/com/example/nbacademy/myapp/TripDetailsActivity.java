@@ -16,7 +16,7 @@ public class TripDetailsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip_details);
 
-        Button backButton = (Button) findViewById(R.id.backButton);
+        Button backButton = (Button) findViewById(R.id.doneButton);
         Button nextButton = (Button) findViewById(R.id.nextButton);
 
         final Intent backTo = new Intent(this, MainActivity.class);

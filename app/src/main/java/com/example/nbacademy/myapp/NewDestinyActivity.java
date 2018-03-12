@@ -13,7 +13,7 @@ public class NewDestinyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_destiny);
 
-        Button backButton = (Button) findViewById(R.id.backButton);
+        Button backButton = (Button) findViewById(R.id.doneButton);
         final Intent backIntent = new Intent(this, DestinyActivity.class);
 
         backButton.setOnClickListener(new View.OnClickListener() {
