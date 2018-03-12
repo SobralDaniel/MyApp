@@ -13,7 +13,7 @@ import java.util.Objects;
  * Created by NBAcademy on 11/03/2018.
  */
 
-public class Destination implements IDestination {
+public class Destination extends Table implements IDestination {
 
     private Date initialDate, finalDate;
     private double mealCost, hostCost;
@@ -24,6 +24,7 @@ public class Destination implements IDestination {
 
     public Destination()
     {
+        super();
         categories = new ArrayList<ICategory>();
     }
 

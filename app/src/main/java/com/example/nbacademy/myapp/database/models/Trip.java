@@ -13,6 +13,10 @@ public class Trip implements ITrip {
     private String name, origin, type;
     private float totalBudget, price;
 
+    public Trip(){
+        super();
+    }
+
     @Override
     public int getId() {
         return id;
