@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Back"
-            android:id="@+id/backButton"/>
+            android:id="@+id/doneButton"/>
         <Button
             android:layout_width="170dp"
             android:layout_height="wrap_content"

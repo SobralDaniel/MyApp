@@ -8,41 +8,56 @@
     android:orientation="vertical"
     android:weightSum="1">
 
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:layout_weight="0.94"
         android:weightSum="1">
 
-        <Button
-            android:layout_width="147dp"
+        <TextView
+            android:layout_width="167dp"
             android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Categories"
-            android:id="@+id/categories"
-            android:layout_gravity="center_horizontal" />
+            android:id="@+id/labelCategories"
+            android:layout_weight="0.07"
+            android:textSize="30dp" />
 
-        <Button
+        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Accommodation"
+            android:text="Accomodation"
             android:id="@+id/accomodation"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.07"
+            android:checked="false" />
 
-        <Button
-            android:layout_width="146dp"
+        <RadioButton
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Food"
             android:id="@+id/food"
-            android:layout_gravity="center_horizontal" />
-        <Spinner
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.07"
+            android:checked="false" />
+        <ImageView
+            android:layout_width="115dp"
+            android:layout_height="48dp"
             android:id="@+id/addCategory"
-            android:layout_width="fill_parent"
+            android:layout_marginTop="70dp"
+            android:src="@drawable/buttonadd"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.01" />
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:spinnerMode="dropdown"
-            android:layout_weight="0.07" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Add new category"
+            android:id="@+id/addNewCategory"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.01" />
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -55,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Back"
-                android:id="@+id/backButton"/>
+                android:id="@+id/doneButton"/>
             <Button
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"

@@ -16,29 +16,108 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="38dp">
+        android:weightSum="1">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="116dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Nova y"
-            android:id="@+id/textView" />
+            android:text="Trips"
+            android:id="@+id/labelTrips"
+            android:layout_weight="0.07"
+            android:textSize="30dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <TableLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Name of Trip"
-            android:id="@+id/nameOfTrip" />
+            android:layout_weight="0.20">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Trip"
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <AutoCompleteTextView
+                    android:text="México"
+                    android:id="@+id/autoCompleteTextView"
+                    android:layout_weight="0.07"
+                    android:layout_column="41" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="35dp"
+                    android:id="@+id/buttonDelete"
+                    android:src="@drawable/lixo"
+                    android:layout_gravity="right"
+                    android:layout_column="116" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TableRow>
+        </TableLayout>
+
+        <ImageView
+            android:layout_width="115dp"
+            android:layout_height="48dp"
             android:id="@+id/addTrip"
-            android:layout_gravity="center_horizontal" />
+            android:layout_marginTop="120dp"
+            android:src="@drawable/buttonadd"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.01" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Add new trip"
+            android:id="@+id/addNewTrip"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.01" />
+
     </LinearLayout>
 </RelativeLayout>
