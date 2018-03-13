@@ -1,7 +1,9 @@
-package com.example.nbacademy.grupo5;
+package com.example.nbacademy.myapp.Activitys;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.nbacademy.myapp.R;
 
 public class AlimentacaoActivity extends AppCompatActivity {
 

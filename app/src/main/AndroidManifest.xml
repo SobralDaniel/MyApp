@@ -18,8 +18,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TripDetailsActivity"></activity>
-        <activity android:name=".TripCategoriesActivity"></activity>
+        <activity
+            android:name=".Activitys.MainActivity_Activitys"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".Activitys.SuggestionsActivity"
+            android:label="@string/title_activity_meu_percurso"
+            android:parentActivityName=".Activitys.MainActivity_Activitys"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nbacademy.myapp.Activitys.MainActivity_Activitys" />
+        </activity>
+        <activity
+            android:name=".Activitys.MeuPercurso"
+            android:label="@string/title_activity_meu_percurso"
+            android:parentActivityName=".Activitys.MainActivity_Activitys"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nbacademy.myapp.Activitys.MainActivity_Activitys" />
+        </activity>
+        <activity android:name=".TripDetailsActivity" />
+        <activity android:name=".TripCategoriesActivity" />
+
+        <activity
+            android:label="Nova Actividade"
+            android:name=".Activitys.NewActivity"></activity>
     </application>
+
+
+
 
 </manifest>
