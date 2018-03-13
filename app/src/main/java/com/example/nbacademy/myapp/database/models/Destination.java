@@ -20,7 +20,8 @@ public class Destination extends Table implements IDestination {
     private String currency, timezone, destinationName;
     private List<ICategory> categories;
     private double currencyValue, temperature;
-    private int id, tripId, percLunch, percDinner, percShops, percExtras;
+    private int percLunch, percDinner, percShops, percExtras;
+    private long id, tripId;
 
     public Destination()
     {
@@ -29,8 +30,13 @@ public class Destination extends Table implements IDestination {
     }
 
     @Override
-    public int getId() {
+    public long getId() {
         return id;
+    }
+
+    @Override
+    public void setId(long id){
+        this.id = id;
     }
 
     @Override
@@ -169,12 +175,12 @@ public class Destination extends Table implements IDestination {
     }
 
     @Override
-    public int getTripId() {
+    public long getTripId() {
         return tripId;
     }
 
     @Override
-    public void setTripId(int tripId) {
+    public void setTripId(long tripId) {
         this.tripId = tripId;
     }
 

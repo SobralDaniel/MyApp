@@ -11,13 +11,19 @@ import java.util.Map;
  */
 public class Category implements ICategory {
 
-    private int destinationId, id;
+    private long id;
+    private int destinationId;
     private String name;
-    private Map<Integer,Activity> activities;
+    private Map<Long,Activity> activities;
 
     @Override
-    public int getId() {
+    public long getId() {
         return id;
+    }
+
+    @Override
+    public void setId(long id){
+        this.id = id;
     }
 
     public int getDestinationId() {
@@ -51,7 +57,7 @@ public class Category implements ICategory {
     }
 
     @Override
-    public boolean removeActivity(int id) {
+    public boolean removeActivity(long id) {
         return activities.remove(id) != null ? true : false;
     }
     

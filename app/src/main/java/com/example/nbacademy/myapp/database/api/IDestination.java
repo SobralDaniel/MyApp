@@ -9,7 +9,9 @@ import java.util.Date;
 
 public interface IDestination extends ITable {
 
-    int getId();
+    long getId();
+
+    void setId(long id);
 
     Date getInitialDate();
 
@@ -43,9 +45,9 @@ public interface IDestination extends ITable {
 
     void setTemperature (double temperature);
 
-    int getTripId();
+    long getTripId();
 
-    void setTripId (int tripId);
+    void setTripId (long tripId);
 
     int getPercLunch();
 

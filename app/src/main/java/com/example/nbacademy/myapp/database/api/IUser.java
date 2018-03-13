@@ -11,6 +11,8 @@ public interface IUser extends ITable {
 
     long getId();
 
+    void setId(long id);
+
     int getAge();
 
     void setAge(int age);

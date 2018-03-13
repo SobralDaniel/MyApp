@@ -9,7 +9,9 @@ import java.util.List;
  */
 public interface ICategory extends ITable{
 
-    int getId();
+    long getId();
+
+    void setId(long id);
 
     int getDestinationId();
 
@@ -23,5 +25,5 @@ public interface ICategory extends ITable{
 
     boolean addActivity(Activity activity);
 
-    boolean removeActivity(int id);
+    boolean removeActivity(long id);
 }

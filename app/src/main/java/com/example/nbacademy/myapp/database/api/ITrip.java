@@ -7,7 +7,9 @@ import java.util.Date;
  */
 public interface ITrip extends ITable {
 
-    int getId();
+    long getId();
+
+    void setId(long id);
 
     float getPrice();
 
@@ -33,9 +35,9 @@ public interface ITrip extends ITable {
 
     void setTotalBudget(float totalBudget);
 
-    int getUserId();
+    long getUserId();
 
-    void setUserId(int id);
+    void setUserId(long id);
 
     Date getStartDate();
 
