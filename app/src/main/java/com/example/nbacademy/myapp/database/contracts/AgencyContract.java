@@ -12,11 +12,11 @@ public final class AgencyContract {
     }
 
     public static class AgencyEntry implements BaseColumns {
-
-        private static final String TABLE_NAME = "agency";
-        private static final String COLUMN_NAME_NAME = "name";
-        private static final String COLUMN_NAME_ADDRESS = "adress";
-        private static final String COLUMN_NAME_TYPE = "type";
-        private static final String COLUMN_NAME_NIB = "nib";
+        //NOT USED FOR NOW
+        public static final String TABLE_NAME = "agency";
+        public static final String COLUMN_NAME_NAME = "name";
+        public static final String COLUMN_NAME_ADDRESS = "adress";
+        public static final String COLUMN_NAME_TYPE = "type";
+        public static final String COLUMN_NAME_NIB = "nib";
     }
 }

@@ -1,11 +1,15 @@
 package com.example.nbacademy.myapp.database.api;
 
+import com.example.nbacademy.myapp.database.models.Trip;
+
+import java.util.List;
+
 /**
  * Created by nbacademy on 09/03/2018.
  */
 public interface IUser extends ITable {
 
-    int getId();
+    long getId();
 
     int getAge();
 
@@ -30,4 +34,10 @@ public interface IUser extends ITable {
     String getEmail();
 
     void setEmail(String email);
+
+    List<ITrip> getTrips();
+
+    boolean addTrip(ITrip trip);
+
+    boolean removeTrip(long id);
 }

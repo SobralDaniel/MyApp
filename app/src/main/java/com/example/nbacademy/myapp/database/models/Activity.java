@@ -1,6 +1,7 @@
 package com.example.nbacademy.myapp.database.models;
 
 import com.example.nbacademy.myapp.database.api.IActivity;
+import com.example.nbacademy.myapp.database.api.ICost;
 
 import java.util.Date;
 
@@ -10,10 +11,11 @@ import java.util.Date;
 public class Activity implements IActivity {
 
     private String name, address, type;
-    private int id, agencyId;
+    private int id, categoryId;
     private float price, ranking;
     private Boolean promotion;
-    private long duration;
+    private Date startDate, endDate;
+    private ICost cost;
 
     @Override
     public int getId() {
@@ -61,13 +63,13 @@ public class Activity implements IActivity {
     }
 
     @Override
-    public int getAgencyId() {
-        return agencyId;
+    public int getCategoryId() {
+        return categoryId;
     }
 
     @Override
-    public void setAgencyId(int agencyId) {
-        this.agencyId = agencyId;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     @Override
@@ -91,13 +93,33 @@ public class Activity implements IActivity {
     }
 
     @Override
-    public long getDuration() {
-        return duration;
+    public Date getStartDate() {
+        return startDate;
     }
 
     @Override
-    public void setDuration(long duration) {
-        this.duration = duration;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    @Override
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    @Override
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    @Override
+    public ICost getCost() {
+        return cost;
+    }
+
+    @Override
+    public void setCost(ICost cost) {
+        this.cost = cost;
     }
 
     @Override
