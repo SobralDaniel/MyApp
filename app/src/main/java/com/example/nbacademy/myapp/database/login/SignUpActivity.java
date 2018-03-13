@@ -11,6 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nbacademy.myapp.R;
+import com.example.nbacademy.myapp.database.DBHelper;
+import com.example.nbacademy.myapp.database.api.IUser;
+import com.example.nbacademy.myapp.database.models.User;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -76,13 +79,25 @@ public class SignUpActivity extends AppCompatActivity {
 
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
-        String password_confirm = _passwordconfirmText.getText().toString();
+       // String password_confirm = _passwordconfirmText.getText().toString();
         String name = _nameText.getText().toString();
         String age = _ageText.getText().toString();
         String nif = _nifText.getText().toString();
         String number = _numberText.getText().toString();
 
-        // TODO: Implement your own signup logic here.
+        IUser us = new User();
+
+        us.setEmail(email);
+        us.setPassword(password);
+        us.setAge(Integer.parseInt(age));
+        us.setName(name);
+        us.setNif(nif);
+        us.setPhoneNumber(number);
+
+        boolean done = us.create();
+
+        if(!done)
+            onSignupFailed();
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
