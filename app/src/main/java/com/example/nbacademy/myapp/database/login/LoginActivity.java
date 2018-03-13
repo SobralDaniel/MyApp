@@ -13,6 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nbacademy.myapp.R;
+import com.example.nbacademy.myapp.database.DBHelper;
+import com.example.nbacademy.myapp.database.api.IUser;
+import com.example.nbacademy.myapp.database.models.User;
 import com.facebook.FacebookSdk;
 import com.mukeshsolanki.sociallogin.facebook.FacebookHelper;
 import com.mukeshsolanki.sociallogin.facebook.FacebookListener;
@@ -106,21 +109,6 @@ public class LoginActivity extends AppCompatActivity implements FacebookListener
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
 
-        String email = _emailText.getText().toString();
-        String password = _passwordText.getText().toString();
-
-        // TODO: Implement your own authentication logic here.
-
-        /*IUser u = null;
-        u = !findEmail(email);
-
-        if (u == null)
-        //username does not exist
-        else if (!u.getPassword().equals(password)) //check password
-        //password dont match
-        else //do login, goto activity*/
-
-
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
@@ -175,10 +163,19 @@ public class LoginActivity extends AppCompatActivity implements FacebookListener
             _emailText.setError(null);
         }
 
-        if (password.isEmpty() || password.length() < 4 || password.matches(".*\\d+.*") || password.contains("[a-zA-Z]+")) {
+        IUser u = DBHelper.getInstance(null, null, null, 0).findUserByEmail(email);
+
+        if (password.isEmpty() || password.length()
+                < 4 || password.matches("[A-Za-z0-9]+")) {
             _passwordText.setError("minimum of 8 alphanumeric characters");
             valid = false;
-        } else {
+        } else if(u == null || !u.getPassword().equals(password)) {
+            _emailText.setError("Incorrect email or password");
+        }
+        else{
+            Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
+            startActivityForResult(intent, REQUEST_SIGNUP);
+
             _passwordText.setError(null);
         }
 
