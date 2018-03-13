@@ -24,28 +24,25 @@
             android:layout_weight="0.07"
             android:textSize="30dp" />
 
-        <RadioButton
+        <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Accomodation"
-            android:id="@+id/accomodation"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="0.07"
-            android:checked="false" />
+            android:id="@+id/scrollView2"
+            android:layout_weight="0.47">
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Food"
-            android:id="@+id/food"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="0.07"
-            android:checked="false" />
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:id="@+id/categories"
+                android:layout_weight="0.12">
+            </ListView>
+        </ScrollView>
+
         <ImageView
             android:layout_width="115dp"
             android:layout_height="48dp"
+            android:layout_marginTop="10dp"
             android:id="@+id/addCategory"
-            android:layout_marginTop="70dp"
             android:src="@drawable/buttonadd"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.01" />
@@ -57,12 +54,20 @@
             android:id="@+id/addNewCategory"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.01" />
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_height="70dp"
+            android:id="@+id/newCategories"
+            android:layout_weight="0.12"
+            android:visibility="invisible">
+        </ListView>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
+            android:layout_marginTop="110dp"
             android:layout_weight="0.40">
 
             <Button
@@ -78,7 +83,5 @@
                 android:text="Next"
                 android:id="@+id/nextButton"/>
         </LinearLayout>
-
     </LinearLayout>
-
 </LinearLayout>

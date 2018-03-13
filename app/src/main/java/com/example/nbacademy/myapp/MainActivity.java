@@ -11,12 +11,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private Context ctx = this;
+    public ArrayList<String> trips = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +31,19 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         ImageView addTrip = (ImageView) findViewById(R.id.addTrip);
-        ImageView buttonDelete = (ImageView) findViewById(R.id.buttonDelete);
 
         final Intent myIntent = new Intent(this, TripDetailsActivity.class);
+
+        trips.add("México");
+        trips.add("Brasil");
+        trips.add("Portugal");
+
+        ListView listOfTrips = (ListView) findViewById(R.id.tripList);
+
+        DeleteAdapter deleteTripAdapter = new DeleteAdapter(this,
+                android.R.layout.simple_list_item_1, trips);
+
+        listOfTrips.setAdapter(deleteTripAdapter);
 
         addTrip.setOnClickListener(new View.OnClickListener() {
 
@@ -37,15 +52,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
-
-        buttonDelete.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                //TODO eliminar o elemento da lista
-            }
-        });
-
     }
 
     @Override
