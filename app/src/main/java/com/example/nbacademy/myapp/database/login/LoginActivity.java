@@ -1,4 +1,4 @@
-package com.example.nbacademy.myapp.login;
+package com.example.nbacademy.myapp.database.login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -13,8 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nbacademy.myapp.R;
-import com.example.nbacademy.myapp.database.api.IUser;
-import com.example.nbacademy.myapp.database.models.User;
 import com.facebook.FacebookSdk;
 import com.mukeshsolanki.sociallogin.facebook.FacebookHelper;
 import com.mukeshsolanki.sociallogin.facebook.FacebookListener;
@@ -75,7 +73,7 @@ public class LoginActivity extends AppCompatActivity implements FacebookListener
 
         mGoogle = new GoogleHelper(this, this, null);
 
-        ImageButton btnFacebook = findViewById(R.id.btnFacebook);
+        ImageButton btnFacebook = (ImageButton) findViewById(R.id.btnFacebook);
         btnFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -83,7 +81,7 @@ public class LoginActivity extends AppCompatActivity implements FacebookListener
             }
         });
 
-        ImageButton btnGoogle = findViewById(R.id.btnGoogle);
+        ImageButton btnGoogle = (ImageButton) findViewById(R.id.btnGoogle);
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){

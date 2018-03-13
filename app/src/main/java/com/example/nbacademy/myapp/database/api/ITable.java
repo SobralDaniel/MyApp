@@ -9,17 +9,17 @@ public interface ITable {
      * Creates a new entry in a table.
      * @return true - in case of success, false - otherwise
      */
-    boolean create();
+    public boolean create();
 
     /**
      * Updates an entry in a table.
      * @return true - in case of success, false - otherwise
      */
-    boolean update();
+    public boolean update();
 
     /**
      * Delete an entry from a table.
      * @return true - in case of success, false - otherwise
      */
-    boolean delete();
+    public boolean delete();
 }

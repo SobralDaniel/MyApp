@@ -9,13 +9,23 @@ import java.util.Date;
 public class Trip implements ITrip {
 
     private Date startDate, endDate;
-    private int numPeople, id, status, userId;
+    private long id, userId;
+    private int numPeople, status;
     private String name, origin, type;
     private float totalBudget, price;
 
+    public Trip(){
+        super();
+    }
+
     @Override
-    public int getId() {
+    public long getId() {
         return id;
+    }
+
+    @Override
+    public void setId(long id){
+        this.id = id;
     }
 
     @Override
@@ -79,12 +89,12 @@ public class Trip implements ITrip {
     }
 
     @Override
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
     @Override
-    public void setUserId(int id) {
+    public void setUserId(long id) {
         this.userId = id;
     }
 

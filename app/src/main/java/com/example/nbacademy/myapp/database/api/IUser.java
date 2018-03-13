@@ -9,7 +9,9 @@ import java.util.List;
  */
 public interface IUser extends ITable {
 
-    int getId();
+    long getId();
+
+    void setId(long id);
 
     int getAge();
 
@@ -35,9 +37,9 @@ public interface IUser extends ITable {
 
     void setEmail(String email);
 
-    List<Trip> getTrips();
+    List<ITrip> getTrips();
 
-    boolean addTrip(Trip trip);
+    boolean addTrip(ITrip trip);
 
-    boolean removeTrip(int id);
+    boolean removeTrip(long id);
 }
