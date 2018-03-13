@@ -35,7 +35,7 @@ public class User extends Table implements IUser {
 
     private void updateFields(){
         if(getFromDB()){
-            SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getReadableDatabase();
+            SQLiteDatabase db = DBHelper.getInstance(null).getReadableDatabase();
 
             String[] projection = {UserContract.UserEntry._ID,UserContract.UserEntry.COLUMN_NAME_NAME,
                     UserContract.UserEntry.COLUMN_NAME_EMAIL,UserContract.UserEntry.COLUMN_NAME_NIF,
@@ -173,7 +173,7 @@ public class User extends Table implements IUser {
 
     @Override
     public boolean create() {
-        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+        SQLiteDatabase db = DBHelper.getInstance(null).getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(UserContract.UserEntry.COLUMN_NAME_NAME,name);
@@ -208,7 +208,7 @@ public class User extends Table implements IUser {
 
         int nRowsAffected = 0;
         if(values.size() > 0){
-            SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+            SQLiteDatabase db = DBHelper.getInstance(null).getWritableDatabase();
             String selection = UserContract.UserEntry._ID + " =";
             String[] selectionArgs = {id + ""};
             nRowsAffected = db.update(UserContract.UserEntry.TABLE_NAME,values,selection,selectionArgs);
@@ -221,7 +221,7 @@ public class User extends Table implements IUser {
     @Override
     public boolean delete() {
 
-        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+        SQLiteDatabase db = DBHelper.getInstance(null).getWritableDatabase();
         String selection = UserContract.UserEntry._ID + " =";
         String[] selectionArgs = {id + ""};
         int nRowsAffected = db.delete(UserContract.UserEntry.TABLE_NAME,selection,selectionArgs);

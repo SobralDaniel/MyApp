@@ -228,7 +228,7 @@ public class Destination extends Table implements IDestination {
 
     @Override
     public boolean create() {
-        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+        SQLiteDatabase db = DBHelper.getInstance(null).getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(DestinationContract.DestinationEntry.COLUMN_NAME_NAME, destinationName);
@@ -261,7 +261,7 @@ public class Destination extends Table implements IDestination {
     @Override
     public boolean delete() {
 
-        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+        SQLiteDatabase db = DBHelper.getInstance(null).getWritableDatabase();
         String selection = DestinationContract.DestinationEntry._ID + " =";
         String[] selectionArgs = {id + ""};
         int nRowsAffected = db.delete(DestinationContract.DestinationEntry.TABLE_NAME,selection,selectionArgs);
