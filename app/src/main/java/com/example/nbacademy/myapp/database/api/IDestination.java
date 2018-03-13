@@ -9,7 +9,7 @@ import java.util.Date;
 
 public interface IDestination extends ITable {
 
-    int getId();
+    long getId();
 
     Date getInitialDate();
 

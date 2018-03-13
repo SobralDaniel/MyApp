@@ -1,11 +1,16 @@
 package com.example.nbacademy.myapp.database.models;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.example.nbacademy.myapp.database.DBHelper;
 import com.example.nbacademy.myapp.database.api.ICategory;
 import com.example.nbacademy.myapp.database.api.IDestination;
+import com.example.nbacademy.myapp.database.contracts.DestinationContract;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,7 +25,8 @@ public class Destination extends Table implements IDestination {
     private String currency, timezone, destinationName;
     private List<ICategory> categories;
     private double currencyValue, temperature;
-    private int id, tripId, percLunch, percDinner, percShops, percExtras;
+    private int tripId, percLunch, percDinner, percShops, percExtras;
+    private long id;
 
     public Destination()
     {
@@ -29,9 +35,10 @@ public class Destination extends Table implements IDestination {
     }
 
     @Override
-    public int getId() {
+    public long getId() {
         return id;
     }
+
 
     @Override
     public Date getInitialDate() {
@@ -39,6 +46,7 @@ public class Destination extends Table implements IDestination {
     }
 
     public void setInitialDate(Date initialDate) {
+
         this.initialDate = initialDate;
     }
 
@@ -57,9 +65,7 @@ public class Destination extends Table implements IDestination {
     }
 
     @Override
-    public void setMealCost(Double mealCost) {
-
-    }
+    public void setMealCost(Double mealCost) { this.mealCost = mealCost; }
 
     public void setMealCost(double mealCost) {
         this.mealCost = mealCost;
@@ -71,9 +77,7 @@ public class Destination extends Table implements IDestination {
     }
 
     @Override
-    public void setHostCost(Double hostCost) {
-
-    }
+    public void setHostCost(Double hostCost) { this.hostCost = hostCost; }
 
     public void setHostCost(double hostCost) {
         this.hostCost = hostCost;
@@ -154,7 +158,6 @@ public class Destination extends Table implements IDestination {
                 }
             }
         }
-
         return false;
     }
 
@@ -220,16 +223,44 @@ public class Destination extends Table implements IDestination {
 
     @Override
     public boolean create() {
-        return false;
+        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(DestinationContract.DestinationEntry.COLUMN_NAME_NAME, destinationName);
+        values.put(DestinationContract.DestinationEntry.COLUMN_NAME_TEMPERATURE, temperature);
+        values.put(DestinationContract.DestinationEntry.COLUMN_NAME_ST_PURCHASE, percShops);
+        values.put(DestinationContract.DestinationEntry.COLUMN_NAME_ST_LUNCH, getPercLunch());
+        values.put(DestinationContract.DestinationEntry.COLUMN_NAME_ST_DINNER, percDinner);
+        values.put(DestinationContract.DestinationEntry.COLUMN_NAME_START_DATE, initialDate.toString());
+        values.put(DestinationContract.DestinationEntry.COLUMN_NAME_END_DATE, finalDate.toString());
+        values.put(DestinationContract.DestinationEntry.COLUMN_NAME_MEAL_COST, mealCost);
+        values.put(DestinationContract.DestinationEntry.COLUMN_NAME_HOST_COST, hostCost);
+        values.put(DestinationContract.DestinationEntry.COLUMN_NAME_CURRENCY_VALUE, currencyValue);
+        values.put(DestinationContract.DestinationEntry.COLUMN_NAME_CURRENCY, currency);
+        values.put(DestinationContract.DestinationEntry.COLUMN_NAME_TEMPERATURE, temperature);
+        values.put(DestinationContract.DestinationEntry.COLUMN_NAME_TIMEZONE, timezone);
+
+        id = db.insert(DestinationContract.DestinationEntry.TABLE_NAME, null,values);
+
+        return id == -1 ? false : true;
     }
 
     @Override
     public boolean update() {
+        ContentValues values = new ContentValues();
+
         return false;
+
     }
 
     @Override
     public boolean delete() {
-        return false;
+
+        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+        String selection = DestinationContract.DestinationEntry._ID + " =";
+        String[] selectionArgs = {id + ""};
+        int nRowsAffected = db.delete(DestinationContract.DestinationEntry.TABLE_NAME,selection,selectionArgs);
+
+        return nRowsAffected > 0;
     }
 }
