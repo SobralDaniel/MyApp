@@ -27,7 +27,7 @@ public class DBHelper extends SQLiteOpenHelper {
             UserContract.UserEntry.COLUMN_NAME_PASSWORD + " TEXT, " +
             UserContract.UserEntry.COLUMN_NAME_EMAIL + " TEXT NOT NULL, " +
             UserContract.UserEntry.COLUMN_NAME_PHONE_NUMBER + " TEXT), " +
-           
+
             TripContract.TripEntry.COLUMN_NAME_NAME + " TEXT NOT NULL, " +
             TripContract.TripEntry.COLUMN_NAME_START_DATE + " TEXT, " +
             TripContract.TripEntry.COLUMN_NAME_END_DATE + " TEXT, " +

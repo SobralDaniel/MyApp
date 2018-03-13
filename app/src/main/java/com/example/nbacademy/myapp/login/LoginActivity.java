@@ -69,6 +69,8 @@ public class LoginActivity extends AppCompatActivity implements FacebookListener
 
         FacebookSdk.setApplicationId(getResources().getString(R.string.facebook_app_id));
         FacebookSdk.sdkInitialize(this);
+
+
         mFacebook = new FacebookHelper(this);
 
         mGoogle = new GoogleHelper(this, this, null);
