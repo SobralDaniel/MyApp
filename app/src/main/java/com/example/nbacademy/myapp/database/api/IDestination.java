@@ -2,6 +2,7 @@ package com.example.nbacademy.myapp.database.api;
 
 import java.lang.reflect.Array;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by NBAcademy on 10/03/2018.
@@ -57,17 +58,19 @@ public interface IDestination extends ITable {
 
     void setPercDinner (int percDinner);
 
-    int getPercShops ();
+    int getPercPurchase ();
 
-    void setPercShops (int percShops);
+    void setPercPurchase (int percPurchase);
 
     int getPercExtras();
 
     void setPercExtras(int percExtras);
 
+    String getDestinationName();
+
     void setDestinationName (String destinationName);
 
-    ICategory[] getCategories();
+    List<ICategory> getCategories();
 
     boolean addCategory  (ICategory category);
 
