@@ -15,6 +15,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         MockupData md = new MockupData(this);
+        //md.getUser();
+        //md.getActivities();
+        //md.getCategories();
+        //md.getCosts();
+        //md.getDestinations();
+        //md.getTrip();
+
 
     }
 }

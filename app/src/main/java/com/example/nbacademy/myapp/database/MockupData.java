@@ -30,7 +30,7 @@ public class MockupData {
         u.setNif("123456789");
         u.setPassword("crespo");
         u.setPhoneNumber("912023928");
-        u.create();
+        //u.create();
         return u;
     }
 
@@ -47,7 +47,7 @@ public class MockupData {
         trip.setType("Ferias");
         trip.setTotalBudget(200f);
         u.addTrip(trip);
-        trip.create();
+        //trip.create();
         return trip;
     }
 
@@ -70,7 +70,7 @@ public class MockupData {
         destination.setTemperature(23.0);
         destination.setTimezone("GMT + 0");
         destination.setTripId(trip.getId());
-        destination.create();
+        //destination.create();
         // Madrid
         Destination destination2 = new Destination();
         destination2.setInitialDate(new Date(2018,3,14));
@@ -87,7 +87,7 @@ public class MockupData {
         destination2.setTemperature(24.0);
         destination2.setTimezone("GMT + 1");
         destination2.setTripId(trip.getId());
-        destination2.create();
+        //destination2.create();
         // Porto
         Destination destination3 = new Destination();
         destination3.setInitialDate(new Date(2018,3,16));
@@ -104,7 +104,7 @@ public class MockupData {
         destination3.setTemperature(21.0);
         destination3.setTimezone("GMT + 0");
         destination3.setTripId(trip.getId());
-        destination3.create();
+        //destination3.create();
 
         destinations.add(destination);
         destinations.add(destination2);
@@ -117,16 +117,16 @@ public class MockupData {
         ArrayList<Category> categories = new ArrayList<>();
         Category categoria1 = new Category();
         categoria1.setName("Alojamento");
-        categoria1.create();
+        //categoria1.create();
         Category categoria2 = new Category();
         categoria2.setName("Alimentacao");
-        categoria2.create();
+        //categoria2.create();
         Category categoria3 = new Category();
         categoria3.setName("Transporte");
-        categoria3.create();
+        //categoria3.create();
         Category categoria4 = new Category();
         categoria4.setName("Lazer");
-        categoria4.create();
+        //categoria4.create();
 
         categories.add(categoria1);
         categories.add(categoria2);
@@ -147,7 +147,7 @@ public class MockupData {
         activity.setEndDate(new Date(2018,3,16));
         activity.setRanking(3.8f);
         activity.setCategoryId(categories.get(0).getId());
-        activity.create();
+        //activity.create();
         activities.add(activity);
         // Activity 2
         Activity actividade2 = new Activity();
@@ -155,7 +155,7 @@ public class MockupData {
         actividade2.setStartDate(new Date(2018,3,13));
         actividade2.setEndDate(new Date(2018,3,13));
         actividade2.setCategoryId(categories.get(2).getId());
-        actividade2.create();
+        //actividade2.create();
         activities.add(actividade2);
         // Activity 3
         Activity actividade3 = new Activity();
@@ -172,7 +172,7 @@ public class MockupData {
         actividade4.setStartDate(new Date(2018,3,14));
         actividade4.setEndDate(new Date(2018,3,14));
         actividade4.setCategoryId(categories.get(1).getId());
-        actividade4.create();
+        //actividade4.create();
         activities.add(actividade4);
 
         return activities;
@@ -190,7 +190,7 @@ public class MockupData {
         custo1.setUnitValue(3.5f);
         custo1.setRealCost(15);
         custo1.setActivityId(activities.get(1).getId());
-        custo1.create();
+        //custo1.create();
         costs.add(custo1);
         // Cost 2
         Cost custo2 = new Cost();
@@ -201,7 +201,7 @@ public class MockupData {
         custo2.setUnitValue(35);
         custo2.setRealCost(120);
         custo2.setActivityId(activities.get(3).getId());
-        custo2.create();
+        //custo2.create();
         costs.add(custo2);
         return costs;
     }
