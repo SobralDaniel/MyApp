@@ -33,6 +33,7 @@ dependencies {
     //compile 'com.facebook.android:facebook-android-sdk:4.31.0'
     annotationProcessor 'com.google.auto.value:auto-value:1.1'
     compile 'com.github.mukeshsolanki:social-login-helper:1.0.2'
+    
     annotationProcessor 'com.jakewharton:butterknife:6.1.0'
     compile 'com.jakewharton:butterknife:6.1.0'
 }
