@@ -67,10 +67,11 @@ public class SuggestionsActivity extends AppCompatActivity {
 
     }
 
-    public void meuPercurso(View view, List<Integer> list) {
+    public void meuPercurso(View view, ArrayList<Integer> list) {
         Intent intent = new Intent(this, MeuPercurso.class);
         intent.putIntegerArrayListExtra("test", (ArrayList<Integer>) list);
         IntentArrayList.test = (ArrayList<Integer>) list;
+        Suggestions.map.put(id, list);
         startActivity(intent);
     }
 
@@ -89,16 +90,18 @@ public class SuggestionsActivity extends AppCompatActivity {
         for (int i = 0; i < 5; i++) {
             int t = r.nextInt(5);
             Log.d("ttt", t + "valo ");
-            if (!check.contains(t)) {
-                check.add(t);
-                activitiesToSend.add(activities.get(t));
-                if (a < 4) {
-                    activitiesToSend.add(Transporte.getT(tt));
-                    tt--;
-                    a++;
+            if(activities.get(t).getName().equals("L")) {
+                if (!check.contains(t)) {
+                    check.add(t);
+                    activitiesToSend.add(activities.get(t));
+                    if (a < 4) {
+                        activitiesToSend.add(Transporte.getT(tt));
+                        tt--;
+                        a++;
+                    }
+                } else {
+                    i--;
                 }
-            } else {
-                i--;
             }
 
         }
@@ -112,8 +115,8 @@ public class SuggestionsActivity extends AppCompatActivity {
         return activitiesToSend;
     }
 
-    public List<Integer> getList(ArrayList<Activitie> activities) {
-        List<Integer> ids = new ArrayList<>();
+    public ArrayList<Integer> getList(ArrayList<Activitie> activities) {
+        ArrayList<Integer> ids = new ArrayList<>();
 
         for (int i = 0; i < activities.size(); i++) {
             ids.add(activities.get(i).getId());

@@ -206,7 +206,11 @@ new Citys();
 
     public void alimentacao(View view, int i) {
         Intent intent = new Intent(this, AlimentacaoActivity.class);
+<<<<<<< HEAD
         intent.putExtra("id", i);
+=======
+        //intent.putExtra("id", i);
+>>>>>>> 1f284b3951f60049736202d98c4fb6c1ee558dd0
         startActivity(intent);
     }
 }

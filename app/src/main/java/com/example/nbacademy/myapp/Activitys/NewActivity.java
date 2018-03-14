@@ -21,6 +21,22 @@ import java.util.List;
 public class NewActivity extends AppCompatActivity {
 
     ArrayList<Integer> test = new ArrayList<>();
+    double rankingS = 0.0;
+    double inicioS = 0.0;
+    double fimS = 0.0;
+    double precoS = 0.0;
+    String nameS;
+    String cidadeS;
+    String tipoS;
+
+    EditText name;
+    EditText cidade;
+    EditText tipo;
+    EditText ranking;
+    EditText inicio;
+    EditText fim;
+    EditText preco;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,33 +47,34 @@ public class NewActivity extends AppCompatActivity {
 
         Button b = (Button) findViewById(R.id.button);
 
-        EditText name = (EditText) findViewById(R.id.editText);
-        EditText cidade = (EditText) findViewById(R.id.cidade);
-        EditText tipo = (EditText) findViewById(R.id.editTextTipo);
-        EditText ranking = (EditText) findViewById(R.id.editTextranking);
-        EditText inicio = (EditText) findViewById(R.id.editTextInit);
-        EditText fim = (EditText) findViewById(R.id.editTextfim);
-        EditText preco = (EditText) findViewById(R.id.editTextpreco);
+        name = (EditText) findViewById(R.id.editText);
+        cidade = (EditText) findViewById(R.id.cidade);
+        tipo = (EditText) findViewById(R.id.editTextTipo);
+        ranking = (EditText) findViewById(R.id.editTextranking);
+        inicio = (EditText) findViewById(R.id.editTextInit);
+        fim = (EditText) findViewById(R.id.editTextfim);
+        preco = (EditText) findViewById(R.id.editTextpreco);
 
         DateFormat formatter = new SimpleDateFormat("hh:mm:ss a");
 
-        String nameS = name.getText().toString();
-        String cidadeS = cidade.getText().toString();
-        String tipoS = tipo.getText().toString();
 
-        double rankingS = Double.parseDouble(ranking.getText().toString());
-        double inicioS = Double.parseDouble(inicio.getText().toString());
 
-        double fimS = Double.parseDouble(fim.getText().toString());
-        double precoS = Double.parseDouble(preco.getText().toString());
-
-        Suggestions.add(nameS, cidadeS, tipoS, precoS, inicioS, fimS, rankingS);
-
-        test.add(Suggestions.getlast());
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                nameS = name.getText().toString();
+                cidadeS = cidade.getText().toString();
+                tipoS = tipo.getText().toString();
+                rankingS = Double.parseDouble(ranking.getText().toString());
+                inicioS = Double.parseDouble(inicio.getText().toString());
+                fimS = Double.parseDouble(fim.getText().toString());
+                precoS = Double.parseDouble(preco.getText().toString());
+
+
+                Suggestions.add(nameS, cidadeS, tipoS, precoS, inicioS, fimS, rankingS);
+
+                test.add(Suggestions.getlast());
                 meuPercurso(v, test);
             }
         });

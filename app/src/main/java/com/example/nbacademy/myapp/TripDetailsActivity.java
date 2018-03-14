@@ -19,7 +19,7 @@ public class TripDetailsActivity extends Activity {
         Button backButton = (Button) findViewById(R.id.backButton);
         Button nextButton = (Button) findViewById(R.id.nextButton);
 
-        final Intent backTo = new Intent(this, MainActivity.class);
+        final Intent backTo = new Intent(this, MainActivity_2.class);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override

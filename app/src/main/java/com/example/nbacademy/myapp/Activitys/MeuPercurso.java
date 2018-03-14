@@ -14,11 +14,14 @@ import com.example.nbacademy.myapp.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 public class MeuPercurso extends AppCompatActivity {
 
     List<Activitie> activities = new ArrayList();
     ArrayList<Integer> test = new ArrayList<>();
+    private int id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +32,11 @@ public class MeuPercurso extends AppCompatActivity {
 
        test = getIntent().getIntegerArrayListExtra("test");
 
-
+        id = getIntent().getIntExtra("id", 0);
+        Map<Integer, ArrayList<Integer>> map = Suggestions.map;
         if (test == null) {
-            test = IntentArrayList.test;
-
+           // test = IntentArrayList.test;
+test = map.get(id);
         } else {
             IntentArrayList.test = test;
         }
@@ -42,17 +46,27 @@ public class MeuPercurso extends AppCompatActivity {
             for (int i = 0; i < test.size(); i++) {
                int id = test.get(i);
 
-                if(Suggestions.getAct(id) != null){
-                    activities.add(Suggestions.activities.get(id));
+                if(Suggestions.getAct(id) != null && id > 179){
+                    Log.d("testeForte", id + " entrou aqui");
+                    Random rn = new Random();
+                    activities.add(Transporte.transportes.get(rn.nextInt(Transporte.getids())));
+                    activities.add(Suggestions.getAct(id));
                 }
-                else
+                else if(Suggestions.getAct(id) != null){
+                    Log.d("testeForte", id + " entrou em baixo");
+                    Log.d("ttt", id+"");
+                    activities.add(Suggestions.getAct(id));
+                }
+                else{
                     activities.add(Transporte.getT(id));
+                    Log.d("testeForte", id + " entrou no ultimooo");}
 
             }
         }
 
         Suggestions.activitiesSelected = activities;
 
+        Log.d("eee", Suggestions.activitiesSelected.size()+" Filipe" );
         AdapterListView2 adapter =
                 new AdapterListView2(Suggestions.activitiesSelected, this);
 

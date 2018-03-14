@@ -46,8 +46,10 @@ public class AdapterListView2 extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        Log.d("eee", position + "");
-        Log.d("eee", activitiesList.get(position).getCity());
+        Log.d("size", activitiesList.size() + "SIZE");
+
+        Log.d("size", position+" potion" );
+       Log.d("size", activitiesList.get(position)+ " get");
         if(activitiesList.get(position).getType().equals("T")){
             View view = act.getLayoutInflater()
                     .inflate(R.layout.list_transportes, parent, false);
@@ -86,7 +88,10 @@ public class AdapterListView2 extends BaseAdapter {
                 public void onClick(View v) {
                     //do something
                     activitiesList.remove(position); //or some other task
-                    activitiesList.remove(position+1); //or some other task
+                    activitiesList.remove(position-1); //or some other task
+                    for (int i = 0; i < activitiesList.size(); i++) {
+                        Log.d("vamosver", activitiesList.get(i).getType());
+                    }
                     notifyDataSetChanged();
                 }
             });
@@ -108,7 +113,7 @@ public class AdapterListView2 extends BaseAdapter {
                 }
             }
             //populando as Views
-            nome.setText(act.getName());
+            nome.setText(act.getType());
             Log.d("teste", act.getName());
             descricao.setText(act.getCity());
 
