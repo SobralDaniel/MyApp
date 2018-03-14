@@ -32,7 +32,15 @@
         android:layout_marginStart="54dp"
         android:layout_alignBottom="@+id/check"
         android:layout_alignParentStart="true" />
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/euro"
+        android:text="€"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/more"
+        android:layout_marginEnd="51dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

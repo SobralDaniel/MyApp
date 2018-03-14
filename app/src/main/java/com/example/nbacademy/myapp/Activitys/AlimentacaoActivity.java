@@ -1,16 +1,12 @@
 package com.example.nbacademy.myapp.Activitys;
 
-<<<<<<< HEAD
+
+
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-=======
-
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
->>>>>>> 1f284b3951f60049736202d98c4fb6c1ee558dd0
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
@@ -19,14 +15,11 @@ import android.widget.TextView;
 
 import com.example.nbacademy.myapp.R;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-=======
->>>>>>> 1f284b3951f60049736202d98c4fb6c1ee558dd0
+
 public class AlimentacaoActivity extends AppCompatActivity {
 
     private ListView mListView;
