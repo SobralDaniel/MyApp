@@ -17,12 +17,16 @@ import java.util.List;
  */
 public class DeleteAdapter extends ArrayAdapter<String> {
 
+    private Context context;
+
     public DeleteAdapter(Context context, int textViewResourceId) {
         super(context, textViewResourceId);
+        this.context = context;
     }
 
     public DeleteAdapter(Context context, int resource, List<String> items) {
         super(context, resource, items);
+        this.context = context;
     }
 
     @Override
