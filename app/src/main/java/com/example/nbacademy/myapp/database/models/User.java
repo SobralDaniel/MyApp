@@ -5,6 +5,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.nbacademy.myapp.database.DBHelper;
+import com.example.nbacademy.myapp.database.api.IActivity;
+import com.example.nbacademy.myapp.database.api.ICategory;
+import com.example.nbacademy.myapp.database.api.ICost;
+import com.example.nbacademy.myapp.database.api.IDestination;
 import com.example.nbacademy.myapp.database.api.ITrip;
 import com.example.nbacademy.myapp.database.api.IUser;
 import com.example.nbacademy.myapp.database.contracts.UserContract;
@@ -33,36 +37,40 @@ public class User extends Table implements IUser {
         updatedFields = new HashMap<String,Boolean>();
     }
 
+    public void forceUpdateFields(){
+        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getReadableDatabase();
+
+        String[] projection = {UserContract.UserEntry._ID,UserContract.UserEntry.COLUMN_NAME_NAME,
+                UserContract.UserEntry.COLUMN_NAME_EMAIL,UserContract.UserEntry.COLUMN_NAME_NIF,
+                UserContract.UserEntry.COLUMN_NAME_AGE, UserContract.UserEntry.COLUMN_NAME_PASSWORD,
+                UserContract.UserEntry.COLUMN_NAME_PHONE_NUMBER};
+
+        String selection = UserContract.UserEntry._ID + "= ?";
+        String[] selectionArgs = {""+id};
+
+        String sortOrder = UserContract.UserEntry._ID + " ASC";
+        Cursor cursor = db.query(UserContract.UserEntry.TABLE_NAME,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                sortOrder);
+
+        if(cursor.moveToNext()){
+            id = cursor.getLong(cursor.getColumnIndexOrThrow(UserContract.UserEntry._ID));
+            name = cursor.getString(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_NAME));
+            email = cursor.getString(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_EMAIL));
+            nif = cursor.getString(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_NIF));
+            age = cursor.getInt(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_AGE));
+            password = cursor.getString(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_PASSWORD));
+            phoneNumber = cursor.getString(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_PHONE_NUMBER));
+        }
+    }
+
     private void updateFields(){
         if(getFromDB()){
-            SQLiteDatabase db = DBHelper.getInstance(null).getReadableDatabase();
-
-            String[] projection = {UserContract.UserEntry._ID,UserContract.UserEntry.COLUMN_NAME_NAME,
-                    UserContract.UserEntry.COLUMN_NAME_EMAIL,UserContract.UserEntry.COLUMN_NAME_NIF,
-                    UserContract.UserEntry.COLUMN_NAME_AGE, UserContract.UserEntry.COLUMN_NAME_PASSWORD,
-                    UserContract.UserEntry.COLUMN_NAME_PHONE_NUMBER};
-
-            String selection = UserContract.UserEntry._ID + "= ?";
-            String[] selectionArgs = {""+id};
-
-            String sortOrder = UserContract.UserEntry._ID + " ASC";
-            Cursor cursor = db.query(UserContract.UserEntry.TABLE_NAME,
-                    projection,
-                    selection,
-                    selectionArgs,
-                    null,
-                    null,
-                    sortOrder);
-
-            if(cursor.moveToNext()){
-                id = cursor.getLong(cursor.getColumnIndexOrThrow(UserContract.UserEntry._ID));
-                name = cursor.getString(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_NAME));
-                email = cursor.getString(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_EMAIL));
-                nif = cursor.getString(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_NIF));
-                age = cursor.getInt(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_AGE));
-                password = cursor.getString(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_PASSWORD));
-                phoneNumber = cursor.getString(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_PHONE_NUMBER));
-            }
+            forceUpdateFields();
         }
     }
 
@@ -151,12 +159,34 @@ public class User extends Table implements IUser {
 
     @Override
     public List<ITrip> getTrips() {
-        return new ArrayList<ITrip>(trips.values());
+        List<ITrip> auxTrips = new ArrayList<ITrip>(trips.values());
+
+        //Really bad approach, change this in the future
+
+        for(ITrip auxTrip : auxTrips)
+        {
+            auxTrip.forceUpdateFields();
+            for(IDestination auxDest : auxTrip.getDestinations())
+            {
+                auxDest.forceUpdateFields();
+                for(ICategory auxCat : auxDest.getCategories())
+                {
+                    auxCat.forceUpdateFields();
+                    for(IActivity auxAct : auxCat.getActivities())
+                    {
+                        auxAct.forceUpdateFields();
+                        auxAct.getCost().forceUpdateFields();
+                    }
+                }
+            }
+        }
+        return auxTrips;
     }
 
     @Override
     public boolean addTrip(ITrip trip) {
         if(trip != null && !trips.containsKey(trip.getId())){
+            trip.setUserId(this.id);
             trips.put(trip.getId(),trip);
             return true;
         }
