@@ -11,15 +11,20 @@ import java.util.Date;
 public class Activity implements IActivity {
 
     private String name, address, type;
-    private int id, categoryId;
+    private long id, categoryId;
     private float price, ranking;
     private Boolean promotion;
     private Date startDate, endDate;
     private ICost cost;
 
     @Override
-    public int getId() {
+    public long getId() {
         return id;
+    }
+
+    @Override
+    public void setId(long id){
+        this.id = id;
     }
 
     @Override
@@ -63,12 +68,12 @@ public class Activity implements IActivity {
     }
 
     @Override
-    public int getCategoryId() {
+    public long getCategoryId() {
         return categoryId;
     }
 
     @Override
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(long categoryId) {
         this.categoryId = categoryId;
     }
 

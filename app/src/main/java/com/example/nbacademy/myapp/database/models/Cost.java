@@ -9,14 +9,20 @@ import java.util.Date;
  */
 public class Cost implements ICost {
 
-    private int id, numPeople, activityId;
-    private float unitValue, totalExpectedCost;
+    private long id, activityId;
+    private int numPeople;
+    private float unitValue, realCost;
     private String currency, subCategory;
     private Date date;
 
     @Override
-    public int getId() {
+    public long getId() {
         return id;
+    }
+
+    @Override
+    public void setId(long id){
+        this.id = id;
     }
 
     @Override
@@ -70,23 +76,23 @@ public class Cost implements ICost {
     }
 
     @Override
-    public int getActivityId() {
+    public long getActivityId() {
         return activityId;
     }
 
     @Override
-    public void setActivityId(int activityId) {
+    public void setActivityId(long activityId) {
         this.activityId = activityId;
     }
 
     @Override
-    public float getTotalExpectedCost() {
-        return totalExpectedCost;
+    public float getRealCost() {
+        return realCost;
     }
 
     @Override
-    public void setTotalExpectedCost(float totalExpectedCost) {
-        this.totalExpectedCost = totalExpectedCost;
+    public void setRealCost(float realCost) {
+        this.realCost = realCost;
     }
 
     @Override

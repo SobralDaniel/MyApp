@@ -7,7 +7,9 @@ import java.util.Date;
  */
 public interface IActivity extends ITable {
 
-    int getId();
+    long getId();
+
+    void setId(long id);
 
     String getName();
 
@@ -25,9 +27,9 @@ public interface IActivity extends ITable {
 
     void setPrice(float price);
 
-    int getCategoryId();
+    long getCategoryId();
 
-    void setCategoryId(int agencyId);
+    void setCategoryId(long categoryId);
 
     float getRanking();
 

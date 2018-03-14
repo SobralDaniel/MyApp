@@ -1,6 +1,7 @@
 package com.example.nbacademy.myapp.database.models;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.nbacademy.myapp.database.DBHelper;
@@ -23,22 +24,62 @@ public class User extends Table implements IUser {
     private int age;
     private long id;
     private String name, phoneNumber, nif, password, email;
-    private Map<Integer,ITrip> trips;
+    private Map<Long,ITrip> trips;
     private Map<String,Boolean> updatedFields;
 
     public User(){
         super();
-        trips = new HashMap<Integer,ITrip>();
+        trips = new HashMap<Long,ITrip>();
         updatedFields = new HashMap<String,Boolean>();
+    }
+
+    private void updateFields(){
+        if(getFromDB()){
+            SQLiteDatabase db = DBHelper.getInstance(null).getReadableDatabase();
+
+            String[] projection = {UserContract.UserEntry._ID,UserContract.UserEntry.COLUMN_NAME_NAME,
+                    UserContract.UserEntry.COLUMN_NAME_EMAIL,UserContract.UserEntry.COLUMN_NAME_NIF,
+                    UserContract.UserEntry.COLUMN_NAME_AGE, UserContract.UserEntry.COLUMN_NAME_PASSWORD,
+                    UserContract.UserEntry.COLUMN_NAME_PHONE_NUMBER};
+
+            String selection = UserContract.UserEntry._ID + "= ?";
+            String[] selectionArgs = {""+id};
+
+            String sortOrder = UserContract.UserEntry._ID + " ASC";
+            Cursor cursor = db.query(UserContract.UserEntry.TABLE_NAME,
+                    projection,
+                    selection,
+                    selectionArgs,
+                    null,
+                    null,
+                    sortOrder);
+
+            if(cursor.moveToNext()){
+                id = cursor.getLong(cursor.getColumnIndexOrThrow(UserContract.UserEntry._ID));
+                name = cursor.getString(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_NAME));
+                email = cursor.getString(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_EMAIL));
+                nif = cursor.getString(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_NIF));
+                age = cursor.getInt(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_AGE));
+                password = cursor.getString(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_PASSWORD));
+                phoneNumber = cursor.getString(cursor.getColumnIndexOrThrow(UserContract.UserEntry.COLUMN_NAME_PHONE_NUMBER));
+            }
+        }
+    }
+
+    @Override
+    public void setId(long id){
+        this.id = id;
     }
 
     @Override
     public long getId() {
+        updateFields();
         return id;
     }
 
     @Override
     public int getAge() {
+        updateFields();
         return age;
     }
 
@@ -50,6 +91,7 @@ public class User extends Table implements IUser {
 
     @Override
     public String getName() {
+        updateFields();
         return name;
     }
 
@@ -61,6 +103,7 @@ public class User extends Table implements IUser {
 
     @Override
     public String getPhoneNumber() {
+        updateFields();
         return phoneNumber;
     }
 
@@ -72,6 +115,7 @@ public class User extends Table implements IUser {
 
     @Override
     public String getNif() {
+        updateFields();
         return nif;
     }
 
@@ -83,6 +127,7 @@ public class User extends Table implements IUser {
 
     @Override
     public String getPassword() {
+        updateFields();
         return password;
     }
 
@@ -94,6 +139,7 @@ public class User extends Table implements IUser {
 
     @Override
     public String getEmail() {
+        updateFields();
         return email;
     }
 
@@ -127,7 +173,7 @@ public class User extends Table implements IUser {
 
     @Override
     public boolean create() {
-        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+        SQLiteDatabase db = DBHelper.getInstance(null).getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(UserContract.UserEntry.COLUMN_NAME_NAME,name);
@@ -162,7 +208,7 @@ public class User extends Table implements IUser {
 
         int nRowsAffected = 0;
         if(values.size() > 0){
-            SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+            SQLiteDatabase db = DBHelper.getInstance(null).getWritableDatabase();
             String selection = UserContract.UserEntry._ID + " =";
             String[] selectionArgs = {id + ""};
             nRowsAffected = db.update(UserContract.UserEntry.TABLE_NAME,values,selection,selectionArgs);
@@ -175,7 +221,7 @@ public class User extends Table implements IUser {
     @Override
     public boolean delete() {
 
-        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+        SQLiteDatabase db = DBHelper.getInstance(null).getWritableDatabase();
         String selection = UserContract.UserEntry._ID + " =";
         String[] selectionArgs = {id + ""};
         int nRowsAffected = db.delete(UserContract.UserEntry.TABLE_NAME,selection,selectionArgs);

@@ -1,5 +1,9 @@
 package com.example.nbacademy.myapp;
 
+import com.example.nbacademy.myapp.database.DBHelper;
+import com.example.nbacademy.myapp.database.MainActivity;
+import com.example.nbacademy.myapp.database.models.User;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,6 +14,6 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+
     }
 }

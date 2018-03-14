@@ -7,7 +7,9 @@ import java.util.Date;
  */
 public interface ICost extends ITable {
 
-    int getId();
+    long getId();
+
+    void setId(long id);
 
     float getUnitValue();
 
@@ -29,11 +31,11 @@ public interface ICost extends ITable {
 
     void setNumPeople(int numPeople);
 
-    int getActivityId();
+    long getActivityId();
 
-    void setActivityId(int activityId);
+    void setActivityId(long activityId);
 
-    float getTotalExpectedCost();
+    float getRealCost();
 
-    void setTotalExpectedCost(float totalExpectedCost);
+    void setRealCost(float realCost);
 }
