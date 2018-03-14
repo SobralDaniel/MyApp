@@ -38,9 +38,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/euro"
         android:text="€"
-        android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/more"
-        android:layout_marginEnd="51dp" />
+        android:layout_marginEnd="42dp"
+        android:layout_alignBottom="@+id/more"
+        android:layout_toStartOf="@+id/more" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
