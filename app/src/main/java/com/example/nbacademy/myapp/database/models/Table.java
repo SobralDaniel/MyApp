@@ -15,4 +15,8 @@ public class Table {
     public boolean getFromDB(){
         return System.currentTimeMillis() - this.lastTimeGet > GET_TIME_INTERVAL;
     }
+
+    public void resetTimerDB(){
+        this.lastTimeGet = System.currentTimeMillis();
+    }
 }

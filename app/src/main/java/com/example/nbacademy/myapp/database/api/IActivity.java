@@ -35,10 +35,6 @@ public interface IActivity extends ITable {
 
     void setRanking(float ranking);
 
-    Boolean getPromotion();
-
-    void setPromotion(Boolean promotion);
-
     Date getStartDate();
 
     void setStartDate(Date startDate);

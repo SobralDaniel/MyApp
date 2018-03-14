@@ -5,21 +5,23 @@ package com.example.nbacademy.myapp.database.api;
  */
 public interface ITable {
 
+    void forceUpdateFields();
+
     /**
      * Creates a new entry in a table.
      * @return true - in case of success, false - otherwise
      */
-    public boolean create();
+    boolean create();
 
     /**
      * Updates an entry in a table.
      * @return true - in case of success, false - otherwise
      */
-    public boolean update();
+    boolean update();
 
     /**
      * Delete an entry from a table.
      * @return true - in case of success, false - otherwise
      */
-    public boolean delete();
+    boolean delete();
 }

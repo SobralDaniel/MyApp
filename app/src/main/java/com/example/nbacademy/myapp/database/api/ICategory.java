@@ -13,17 +13,17 @@ public interface ICategory extends ITable{
 
     void setId(long id);
 
-    int getDestinationId();
+    long getDestinationId();
 
-    void setDestinationId(int destinationId);
+    void setDestinationId(long destinationId);
 
     String getName();
 
     void setName(String name);
 
-    List<Activity> getActivities();
+    List<IActivity> getActivities();
 
-    boolean addActivity(Activity activity);
+    boolean addActivity(IActivity activity);
 
     boolean removeActivity(long id);
 }
