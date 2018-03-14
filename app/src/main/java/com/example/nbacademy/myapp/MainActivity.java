@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView addTrip = (ImageView) findViewById(R.id.addTrip);
 
         final Intent myIntent = new Intent(this, TripDetailsActivity.class);
+        final Intent myIntent2 = new Intent(this, MainActivity_2.class);
 
         trips.add("México");
         trips.add("Brasil");
@@ -44,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, trips);
 
         listOfTrips.setAdapter(deleteTripAdapter);
+
+        listOfTrips.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(myIntent2);
+            }
+        });
 
         addTrip.setOnClickListener(new View.OnClickListener() {
 
