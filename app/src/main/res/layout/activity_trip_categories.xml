@@ -9,79 +9,24 @@
     android:weightSum="1">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.94"
-        android:weightSum="1">
+        android:layout_weight="0.40">
 
-        <TextView
-            android:layout_width="167dp"
+        <Button
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Categories"
-            android:id="@+id/labelCategories"
-            android:layout_weight="0.07"
-            android:textSize="30dp" />
-
-        <ScrollView
-            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:text="Back"
+            android:id="@+id/backButton"/>
+        <Button
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:id="@+id/scrollView2"
-            android:layout_weight="0.47">
-
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:id="@+id/categories"
-                android:layout_weight="0.12">
-            </ListView>
-        </ScrollView>
-
-        <ImageView
-            android:layout_width="115dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/addCategory"
-            android:src="@drawable/buttonadd"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.01" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Add new category"
-            android:id="@+id/addNewCategory"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.01" />
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_marginTop="30dp"
-            android:layout_height="70dp"
-            android:id="@+id/newCategories"
-            android:layout_weight="0.12"
-            android:visibility="invisible">
-        </ListView>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="110dp"
-            android:layout_weight="0.40">
-
-            <Button
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Back"
-                android:id="@+id/doneButton"/>
-            <Button
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Next"
-                android:id="@+id/nextButton"/>
-        </LinearLayout>
+            android:layout_gravity="center"
+            android:text="Next"
+            android:id="@+id/nextButton"/>
     </LinearLayout>
+
+
 </LinearLayout>

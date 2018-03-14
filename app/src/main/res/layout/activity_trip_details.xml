@@ -10,14 +10,12 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp">
+        android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:id="@+id/name"
             android:hint="Name"/>
 
     </android.support.design.widget.TextInputLayout>
@@ -30,7 +28,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:id="@+id/startingDate"
             android:hint="Starting Date"/>
 
     </android.support.design.widget.TextInputLayout>
@@ -43,7 +40,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:id="@+id/endingDate"
             android:hint="Ending Date"/>
 
     </android.support.design.widget.TextInputLayout>
@@ -51,19 +47,17 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="119dp"
-        android:layout_weight="0.74">
+        android:layout_height="wrap_content"
+        android:layout_weight="0.40">
 
         <Button
             android:layout_width="170dp"
-            android:layout_marginTop="80dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Back"
-            android:id="@+id/doneButton"/>
+            android:id="@+id/backButton"/>
         <Button
             android:layout_width="170dp"
-            android:layout_marginTop="80dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Next"
