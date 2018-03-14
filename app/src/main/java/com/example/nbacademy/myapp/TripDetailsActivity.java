@@ -3,6 +3,8 @@ package com.example.nbacademy.myapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.Button;
 
@@ -16,10 +18,14 @@ public class TripDetailsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip_details);
 
-        Button backButton = (Button) findViewById(R.id.backButton);
-        Button nextButton = (Button) findViewById(R.id.nextButton);
+        Button backButton = (Button) findViewById(R.id.doneButton);
+        final Button nextButton = (Button) findViewById(R.id.nextButton);
 
-        final Intent backTo = new Intent(this, MainActivity_2.class);
+        final String name = findViewById(R.id.name).toString();
+        final String startingDate = findViewById(R.id.startingDate).toString();
+        final String endingDate = findViewById(R.id.endingDate).toString();
+
+        final Intent backTo = new Intent(this, MainActivity.class);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,11 +35,36 @@ public class TripDetailsActivity extends Activity {
         });
 
         final Intent nextTo = new Intent(this, TripCategoriesActivity.class);
+        nextTo.putExtra("Name", name);
+        nextTo.putExtra("StartingDate", startingDate);
+        nextTo.putExtra("EndingDate", endingDate);
+
+        final TextInputEditText nameValue = (TextInputEditText) findViewById(R.id.name);
+        final TextInputEditText startDate = (TextInputEditText) findViewById(R.id.startingDate);
+        final TextInputEditText endDate = (TextInputEditText) findViewById(R.id.endingDate);
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(nextTo);
+
+                if(name == null) {
+                    nameValue.setError("Please insert your name");
+                    nameValue.setFocusable(true);
+                    nameValue.requestFocus();
+                }else nameValue.setError(null);
+                if(startingDate == null) {
+                    startDate.setError("Invalid start date");
+                    startDate.setFocusable(true);
+                    startDate.requestFocus();
+                }else startDate.setError(null);
+                if(endingDate == null) {
+                    endDate.setError("Invalid start date");
+                    endDate.setFocusable(true);
+                    endDate.requestFocus();
+                }else endDate.setError(null);
+
+                if(nameValue != null && startDate != null && endDate != null)
+                    startActivity(nextTo);
             }
         });
     }

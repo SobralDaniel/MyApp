@@ -15,20 +15,9 @@ public class PaymentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
-        Button backButton = (Button) findViewById(R.id.backButton);
         Button nextButton = (Button) findViewById(R.id.nextButton);
         final RadioButton moneyButton = (RadioButton) findViewById(R.id.moneyButton);
         final RadioButton cardVisaButton = (RadioButton) findViewById(R.id.visaCardButton);
-
-        final Intent backIntent = new Intent(this, DestinyActivity.class);
-
-        backButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                startActivity(backIntent);
-            }
-        });
 
         final Intent nextIntent = new Intent(this, MainActivity.class);
 

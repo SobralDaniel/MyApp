@@ -4,10 +4,16 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class DestinyActivity extends AppCompatActivity {
+
+    public ArrayList<String> destinationList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,8 +21,19 @@ public class DestinyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_destiny);
 
         ImageView addDestiny = (ImageView) findViewById(R.id.addDestiny);
-        Button backButton = (Button) findViewById(R.id.doneButton);
+        Button backButton = (Button) findViewById(R.id.backButton);
         Button nextButton = (Button) findViewById(R.id.nextButton);
+
+        destinationList.add("Portugal");
+        destinationList.add("Brasil");
+        destinationList.add("França");
+
+        ListView listDestination = (ListView) findViewById(R.id.destination);
+
+        ArrayAdapter destinationAdapter = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1, destinationList);
+
+        listDestination.setAdapter(destinationAdapter);
 
         final Intent addDestinyIntent = new Intent(this, NewDestinyActivity.class);
 
@@ -24,7 +41,6 @@ public class DestinyActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                //TODO
                 startActivity(addDestinyIntent);
             }
         });
