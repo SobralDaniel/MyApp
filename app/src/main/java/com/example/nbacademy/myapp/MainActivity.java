@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
 
         ImageView addTrip = (ImageView) findViewById(R.id.addTrip);
 
@@ -41,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
         trips.add("Portugal");
 
         ListView listOfTrips = (ListView) findViewById(R.id.tripList);
+        final Intent intent = new Intent(this, MainActivity_2.class);
+        listOfTrips.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(intent);
+            }
+        });
 
         DeleteAdapter deleteTripAdapter = new DeleteAdapter(this,
                 android.R.layout.simple_list_item_1, trips);
@@ -54,9 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
-
-        //MockupData mockupData = new MockupData(ctx);
-        //mockupData.getUser();
 
     }
 

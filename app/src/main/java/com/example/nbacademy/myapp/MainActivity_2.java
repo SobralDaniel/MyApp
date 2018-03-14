@@ -16,9 +16,6 @@ public class MainActivity_2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         Button sugestions = (Button) findViewById(R.id.Actividades);
-
-
-
         sugestions.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Activitys(v);

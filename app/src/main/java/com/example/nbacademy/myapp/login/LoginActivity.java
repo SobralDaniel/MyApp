@@ -15,7 +15,9 @@ import android.widget.Toast;
 import com.example.nbacademy.myapp.MainActivity;
 import com.example.nbacademy.myapp.R;
 import com.example.nbacademy.myapp.database.DBHelper;
+import com.example.nbacademy.myapp.database.MockupData;
 import com.example.nbacademy.myapp.database.api.IUser;
+import com.example.nbacademy.myapp.database.models.User;
 import com.facebook.FacebookSdk;
 import com.mukeshsolanki.sociallogin.facebook.FacebookHelper;
 import com.mukeshsolanki.sociallogin.facebook.FacebookListener;
@@ -163,6 +165,16 @@ public class LoginActivity extends AppCompatActivity implements FacebookListener
             _emailText.setError(null);
         }
 
+        MockupData mockupData = new MockupData(this);
+        User user = mockupData.getUser();
+
+        if(user.getEmail().equals(email) && user.getPassword().equals(password)) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        } else {
+            valid = false;
+        }
+
 //        IUser u = DBHelper.getInstance(null, null, null, 0).findUserByEmail(email);
 
 //        if (password.isEmpty() || password.length()
@@ -178,11 +190,6 @@ public class LoginActivity extends AppCompatActivity implements FacebookListener
 //
 //            _passwordText.setError(null);
 //        }
-
-
-
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
 
         return valid;
     }
@@ -226,7 +233,5 @@ public class LoginActivity extends AppCompatActivity implements FacebookListener
     public void onGoogleAuthSignOut() {
         Toast.makeText(this, "Signout", Toast.LENGTH_SHORT).show();
     }
-
-
 
 }
