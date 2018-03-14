@@ -26,7 +26,7 @@ public class MainActivity_Activitys extends AppCompatActivity {
     public HorizontalScrollView horizontalScrollView;
 
     public TabHost host;
-     int finalI = 0;
+    int finalI = 0;
     public Viagem viagem;
 
     @Override
@@ -34,20 +34,20 @@ public class MainActivity_Activitys extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity__activitys);
 
-        host = (TabHost)findViewById(R.id.tabHost);
+        host = (TabHost) findViewById(R.id.tabHost);
         host.setup();
 
-new Citys();
+        new Citys();
         new Suggestions();
         new Transporte();
 
         final Button sugestions = (Button) findViewById(R.id.s);
         final Button buttonMeuPercurso = (Button) findViewById(R.id.meuP);
-        Button alimentacao = (Button) findViewById(R.id.cb) ;
+        Button alimentacao = (Button) findViewById(R.id.cb);
 
         sugestions.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               // sgestionsActivitie(v);
+                // sgestionsActivitie(v);
             }
         });
 
@@ -61,67 +61,76 @@ new Citys();
         alimentacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                alimentacao(v);
+                //alimentacao(v);
             }
         });
 
 
+        final List<Viagem> locais = new ArrayList();
+        locais.add(new Viagem(0, "Istambul", "Istambul", new Date(), new Date()));
+        locais.add(new Viagem(1, "Kuala Lumpur", "Kuala Lumpur", new Date(), new Date()));
+        locais.add(new Viagem(2, "Lanokawi", "Lanokawi", new Date(), new Date()));
+        locais.add(new Viagem(3, "Tóquio", "Tóquio", new Date(), new Date()));
+        locais.add(new Viagem(4, "Honolulu", "Honolulu", new Date(), new Date()));
+        locais.add(new Viagem(5, "San Diego", "San Diego", new Date(), new Date()));
+        locais.add(new Viagem(6, "Cusco/Machupicchu", "Cusco/Machupicchu", new Date(), new Date()));
+        locais.add(new Viagem(7, "Buenos Aires", "Buenos Aires", new Date(), new Date()));
+        locais.add(new Viagem(8, "Iguaçu", "Iguaçu", new Date(), new Date()));
+        locais.add(new Viagem(9, "Rio de Janeiro", "Rio de Janeiro", new Date(), new Date()));
 
-        final List<Viagem> locais =  new ArrayList();
-        locais.add(new Viagem(0,"Istambul", "Istambul", new Date(), new Date()));
-        locais.add(new Viagem(1,"Kuala Lumpur", "Kuala Lumpur", new Date(), new Date()));
-        locais.add(new Viagem(2,"Lanokawi", "Lanokawi", new Date(), new Date()));
-        locais.add(new Viagem(3,"Tóquio", "Tóquio", new Date(), new Date()));
-        locais.add(new Viagem(4,"Honolulu", "Honolulu", new Date(), new Date()));
-        locais.add(new Viagem(5,"San Diego", "San Diego", new Date(), new Date()));
-        locais.add(new Viagem(6,"Cusco/Machupicchu", "Cusco/Machupicchu", new Date(), new Date()));
-        locais.add(new Viagem(7,"Buenos Aires", "Buenos Aires", new Date(), new Date()));
-        locais.add(new Viagem(8,"Iguaçu", "Iguaçu", new Date(), new Date()));
-        locais.add(new Viagem(9,"Rio de Janeiro", "Rio de Janeiro", new Date(), new Date()));
 
-
-        final TextView datas = (TextView) findViewById(R.id.dates);
-        datas.setText(locais.get(0).getDataInicio().toString());
-        host = (TabHost)findViewById(R.id.tabHost);
+      //  final TextView datas = (TextView) findViewById(R.id.dates);
+     //   datas.setText(locais.get(0).getDataInicio().toString());
+        host = (TabHost) findViewById(R.id.tabHost);
         host.setup();
 
         //Tab 1
         for (Viagem local : locais) {
-            TabHost.TabSpec spec = host.newTabSpec(local.getId()+"");
+            TabHost.TabSpec spec = host.newTabSpec(local.getId() + "");
             spec.setContent(R.id.tab1);
             spec.setIndicator(local.getOrigem());
             host.addTab(spec);
         }
 
-        host.setOnTabChangedListener(new TabHost.OnTabChangeListener(){
+        host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
 
                 Log.d("eee", tabId);
 
-                for(int i = 0; i < locais.size(); i++){
+                for (int i = 0; i < locais.size(); i++) {
 
-                    if((i+"").equals(tabId+"")){
-                        Log.d("eee", i+ " cenas ");
-                        datas.setText(locais.get(i).getDataInicio().toString());
+                    if ((i + "").equals(tabId + "")) {
+                        Log.d("eee", i + " cenas ");
+                        //datas.setText(locais.get(i).getDataInicio().toString());
 
                         Button sugestions = (Button) findViewById(R.id.s);
                         assert sugestions != null;
-                        finalI   = i;
-                        final int  ff= i;
+                        finalI = i;
+                        final int ff = i;
                         sugestions.setOnClickListener(new View.OnClickListener() {
                             public void onClick(View v) {
                                 viagem = locais.get(ff);
                                 sgestionsActivitie(v, ff);
                             }
                         });
+
+                        Button alimentacao = (Button) findViewById(R.id.cb);
+                        assert alimentacao != null;
+                        alimentacao.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                viagem = locais.get(ff);
+                                alimentacao(v, ff);
+                            }
+                        });
+
                     }
                 }
 
 
                 sugestions.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                         sgestionsActivitie(v, finalI);
+                        sgestionsActivitie(v, finalI);
                     }
                 });
 
@@ -133,7 +142,8 @@ new Citys();
                 });
 
                 Log.d("eee", tabId);
-            }});
+            }
+        });
 
         //layoutInflater=(LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
         //horizontalScrollView=(HorizontalScrollView)findViewById(R.id.horizontal_scroll_view);
@@ -143,23 +153,20 @@ new Citys();
         //setUpHorizontalSView(locais);
     }
 
-    private void setUpHorizontalSView(List<Viagem> locais)
-    {
+    private void setUpHorizontalSView(List<Viagem> locais) {
 
         //String name[]={"Purse","Camera", "Fashion", "teste", "teste1", "teste2"};
 
         Iterator<Viagem> iterator = locais.iterator();
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             View view = layoutInflater.inflate(R.layout.scroll_view_item, linearLayout, false);
-            LinearLayout scroll_item_layout=(LinearLayout) view.findViewById(R.id.scroll_item_Layout);
-            Button item_name=(Button)view.findViewById(R.id.scroll_item_name);
+            LinearLayout scroll_item_layout = (LinearLayout) view.findViewById(R.id.scroll_item_Layout);
+            Button item_name = (Button) view.findViewById(R.id.scroll_item_name);
 
             item_name.setText(iterator.next().getOrigem());
 
 
-
-            if (!iterator.hasNext())
-            {
+            if (!iterator.hasNext()) {
                 scroll_item_layout.setBackgroundResource(android.R.color.transparent);
             }
             linearLayout.addView(view);
@@ -173,7 +180,7 @@ new Citys();
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    TextView datas = (TextView) findViewById(R.id.dates);
+                   // TextView datas = (TextView) findViewById(R.id.dates);
                     //datas.setText();
                 }
                 return false;
@@ -194,9 +201,9 @@ new Citys();
         startActivity(intent);
     }
 
-    public void alimentacao(View view) {
+    public void alimentacao(View view, int i) {
         Intent intent = new Intent(this, AlimentacaoActivity.class);
-        //intent.putExtra("id", i);
+        intent.putExtra("id", i);
         startActivity(intent);
     }
 }

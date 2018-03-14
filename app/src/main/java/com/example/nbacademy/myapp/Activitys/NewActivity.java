@@ -58,8 +58,6 @@ public class NewActivity extends AppCompatActivity {
         DateFormat formatter = new SimpleDateFormat("hh:mm:ss a");
 
 
-
-
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

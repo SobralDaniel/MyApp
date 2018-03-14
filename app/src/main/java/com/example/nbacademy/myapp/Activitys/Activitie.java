@@ -3,7 +3,7 @@ package com.example.nbacademy.myapp.Activitys;
 /**
  * Created by nbacademy on 08/03/2018.
  */
-public class Activitie  {
+public class Activitie {
 
     private final ImagesEnum imagesEnum;
     private final double price;
@@ -22,7 +22,7 @@ public class Activitie  {
         this.type = type;
         this.name = name;
         this.imagesEnum = imagesEnum;
-        this.price =  price;
+        this.price = price;
         this.ranking = ranking;
         this.duracao = duracao;
         this.hi = hi;
