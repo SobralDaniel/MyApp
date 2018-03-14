@@ -491,7 +491,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 dest.setTemperature(cursor.getDouble(cursor.getColumnIndex(DestinationContract.DestinationEntry.COLUMN_NAME_TEMPERATURE)));
                 dest.setPercLunch(cursor.getInt(cursor.getColumnIndex(DestinationContract.DestinationEntry.COLUMN_NAME_ST_LUNCH)));
                 dest.setPercDinner(cursor.getInt(cursor.getColumnIndex(DestinationContract.DestinationEntry.COLUMN_NAME_ST_DINNER)));
-                dest.setPercShops(cursor.getInt(cursor.getColumnIndex(DestinationContract.DestinationEntry.COLUMN_NAME_ST_PURCHASE)));
+                dest.setPercPurchase(cursor.getInt(cursor.getColumnIndex(DestinationContract.DestinationEntry.COLUMN_NAME_ST_PURCHASE)));
                 dest.setPercExtras(cursor.getInt(cursor.getColumnIndex(DestinationContract.DestinationEntry.COLUMN_NAME_ST_EXTRA)));
                 dest.setPercExtras(cursor.getInt(cursor.getColumnIndex(DestinationContract.DestinationEntry.COLUMN_NAME_ST_EXTRA)));
 

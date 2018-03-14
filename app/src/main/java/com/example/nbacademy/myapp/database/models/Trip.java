@@ -41,7 +41,7 @@ public class Trip extends Table implements ITrip {
     }
 
     public void forceUpdateFields(){
-        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getReadableDatabase();
+        SQLiteDatabase db = DBHelper.getInstance(null).getReadableDatabase();
 
         String[] projection = {TripContract.TripEntry._ID,TripContract.TripEntry.COLUMN_NAME_NAME,
                 TripContract.TripEntry.COLUMN_NAME_START_DATE,TripContract.TripEntry.COLUMN_NAME_END_DATE,
@@ -266,7 +266,7 @@ public class Trip extends Table implements ITrip {
 
     @Override
     public boolean create() {
-        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+        SQLiteDatabase db = DBHelper.getInstance(null).getWritableDatabase();
 
         SimpleDateFormat sdf = new SimpleDateFormat(DBHelper.DATE_FORMAT_DB);
 
@@ -313,7 +313,7 @@ public class Trip extends Table implements ITrip {
 
         int nRowsAffected = 0;
         if(values.size() > 0){
-            SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+            SQLiteDatabase db = DBHelper.getInstance(null).getWritableDatabase();
             String selection = TripContract.TripEntry._ID + " =";
             String[] selectionArgs = {id + ""};
             nRowsAffected = db.update(TripContract.TripEntry.TABLE_NAME,values,selection,selectionArgs);
@@ -325,7 +325,7 @@ public class Trip extends Table implements ITrip {
 
     @Override
     public boolean delete() {
-        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+        SQLiteDatabase db = DBHelper.getInstance(null).getWritableDatabase();
         String selection = TripContract.TripEntry._ID + " =";
         String[] selectionArgs = {id + ""};
         int nRowsAffected = db.delete(TripContract.TripEntry.TABLE_NAME,selection,selectionArgs);

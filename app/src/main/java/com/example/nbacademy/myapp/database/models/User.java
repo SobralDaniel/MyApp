@@ -38,7 +38,7 @@ public class User extends Table implements IUser {
     }
 
     public void forceUpdateFields(){
-        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getReadableDatabase();
+        SQLiteDatabase db = DBHelper.getInstance(null).getReadableDatabase();
 
         String[] projection = {UserContract.UserEntry._ID,UserContract.UserEntry.COLUMN_NAME_NAME,
                 UserContract.UserEntry.COLUMN_NAME_EMAIL,UserContract.UserEntry.COLUMN_NAME_NIF,
