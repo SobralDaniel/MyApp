@@ -14,12 +14,14 @@ import com.example.nbacademy.myapp.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class MeuPercurso extends AppCompatActivity {
 
     List<Activitie> activities = new ArrayList();
     ArrayList<Integer> test = new ArrayList<>();
+    private int id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,8 @@ public class MeuPercurso extends AppCompatActivity {
 
        test = getIntent().getIntegerArrayListExtra("test");
 
-
+        id = getIntent().getIntExtra("id", 0);
+        Map<Integer, List<Integer>> map = Suggestions.map;
         if (test == null) {
             test = IntentArrayList.test;
 

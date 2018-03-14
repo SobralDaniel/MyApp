@@ -71,6 +71,7 @@ public class SuggestionsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MeuPercurso.class);
         intent.putIntegerArrayListExtra("test", (ArrayList<Integer>) list);
         IntentArrayList.test = (ArrayList<Integer>) list;
+        Suggestions.map.put(id, list);
         startActivity(intent);
     }
 
