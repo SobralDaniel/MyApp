@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.nbacademy.myapp.R;
@@ -31,7 +32,7 @@ public class MeuPercurso extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         test = getIntent().getIntegerArrayListExtra("test");
-
+Button b = (Button) findViewById(R.id.button3) ;
         id = getIntent().getIntExtra("id", 0);
         if (test == null) {
             test = IntentArrayList.test;
@@ -73,17 +74,13 @@ public class MeuPercurso extends AppCompatActivity {
         lista.setAdapter(adapter);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        b.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
-                newAct(view);
-
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //      .setAction("Action", null).show();
+            public void onClick(View v) {
+                newAct(v);
             }
         });
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
