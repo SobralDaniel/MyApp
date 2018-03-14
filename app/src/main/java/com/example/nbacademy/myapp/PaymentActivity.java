@@ -15,7 +15,7 @@ public class PaymentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
-        Button backButton = (Button) findViewById(R.id.doneButton);
+        Button backButton = (Button) findViewById(R.id.backButton);
         Button nextButton = (Button) findViewById(R.id.nextButton);
         final RadioButton moneyButton = (RadioButton) findViewById(R.id.moneyButton);
         final RadioButton cardVisaButton = (RadioButton) findViewById(R.id.visaCardButton);
