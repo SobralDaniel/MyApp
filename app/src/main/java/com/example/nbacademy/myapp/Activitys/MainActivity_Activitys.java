@@ -61,7 +61,7 @@ new Citys();
         alimentacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                alimentacao(v);
+                //alimentacao(v);
             }
         });
 
@@ -115,6 +115,16 @@ new Citys();
                                 sgestionsActivitie(v, ff);
                             }
                         });
+
+                        Button alimentacao = (Button) findViewById(R.id.cb);
+                        assert alimentacao != null;
+                        alimentacao.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                viagem = locais.get(ff);
+                                alimentacao(v, ff);
+                            }
+                        });
+
                     }
                 }
 
@@ -194,9 +204,13 @@ new Citys();
         startActivity(intent);
     }
 
-    public void alimentacao(View view) {
+    public void alimentacao(View view, int i) {
         Intent intent = new Intent(this, AlimentacaoActivity.class);
+<<<<<<< HEAD
+        intent.putExtra("id", i);
+=======
         //intent.putExtra("id", i);
+>>>>>>> 1f284b3951f60049736202d98c4fb6c1ee558dd0
         startActivity(intent);
     }
 }
