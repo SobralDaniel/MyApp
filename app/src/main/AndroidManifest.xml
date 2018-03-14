@@ -21,6 +21,38 @@
         <activity android:name=".NewDestinyActivity" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".MainActivity" />
+        <activity
+            android:name=".MainActivity_2"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".Activitys.MainActivity_Activitys"
+            android:parentActivityName=".MainActivity_2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity_2" />
+        </activity>
+        <activity
+            android:name=".Activitys.SuggestionsActivity"
+            android:label="@string/title_activity_meu_percurso"
+            android:parentActivityName=".Activitys.MainActivity_Activitys"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nbacademy.myapp.Activitys.MainActivity_Activitys" />
+        </activity>
+        <activity
+            android:name=".Activitys.MeuPercurso"
+            android:label="@string/title_activity_meu_percurso"
+            android:parentActivityName=".Activitys.MainActivity_Activitys"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nbacademy.myapp.Activitys.MainActivity_Activitys" />
+        </activity>
+        <activity
+            android:label="Nova Actividade"
+            android:name=".Activitys.NewActivity"></activity>
     </application>
 
     <meta-data
