@@ -231,4 +231,25 @@ public class Suggestions {
         return t;
     }
 
+    public static List<Activitie> getFood(int i){
+
+        Log.d("ttt", i +" detro " + activities.size());
+
+        String city = Citys.locais.get(i).getOrigem();
+        List<Activitie> t = new ArrayList();
+        for (int y = 0; y < activities.size(); y++) {
+
+            Log.d("FC", activities.get(y).getCity() + "-" +city+"  teste");
+
+            if(activities.get(y).getCity().equals(city) && activities.get(y).getName().equals("A")){
+                Log.d("teste", y+  "entradas");
+                t.add(activities.get(y));
+            }
+
+
+        }
+        Log.d("teste", t.size()+  "taman");
+        return t;
+    }
+
 }
