@@ -1,7 +1,6 @@
 package com.example.nbacademy.myapp.Activitys;
 
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,7 +38,7 @@ public class AlimentacaoActivity extends AppCompatActivity {
         final ArrayList<Activitie> activities = init();
 
 
-        String[] restaurantes = {"Tinkuy Buffet","Chullpi Machupicchu", "AYASQA", "Apu Salkantay", "Tree House", "Incontri del Pueblo Viejo", "Full House Peruvian Cuisine"};
+        String[] restaurantes = {"Tinkuy Buffet", "Chullpi Machupicchu", "AYASQA", "Apu Salkantay", "Tree House", "Incontri del Pueblo Viejo", "Full House Peruvian Cuisine"};
         //ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, restaurantes);
         mListView = (ListView) findViewById(R.id.listView);
 

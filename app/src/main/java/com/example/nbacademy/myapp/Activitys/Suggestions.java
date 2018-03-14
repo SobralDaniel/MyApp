@@ -15,11 +15,11 @@ public class Suggestions {
 
     static List<Activitie> activities = new ArrayList();
     static List<Activitie> activitiesSelected = new ArrayList();
-   // static Map<Integer, ArrayList<Integer>> map;
+    // static Map<Integer, ArrayList<Integer>> map;
     static int ids = 180;
 
     public Suggestions() {
-     //   map = new ArrayMap<>();
+        //   map = new ArrayMap<>();
         activities.add(new Activitie(1, "Istambul", "Mesquita Azul", "L", null, 0, 4.5, 1, 0.0, 0.0));
         activities.add(new Activitie(2, "Istambul", "Museu Hagia Sophia e Igreja (Ayasofya)", "L", null, 8.55, 4.5, 2, 0.0, 0.0));
         activities.add(new Activitie(3, "Istambul", "Grande Bazar", "L", null, 0, 4.4, 3, 0.0, 0.0));
@@ -249,24 +249,24 @@ public class Suggestions {
         return t;
     }
 
-    public static List<Activitie> getFood(int i){
+    public static List<Activitie> getFood(int i) {
 
-        Log.d("ttt", i +" detro " + activities.size());
+        Log.d("ttt", i + " detro " + activities.size());
 
         String city = Citys.locais.get(i).getOrigem();
         List<Activitie> t = new ArrayList();
         for (int y = 0; y < activities.size(); y++) {
 
-            Log.d("FC", activities.get(y).getCity() + "-" +city+"  teste");
+            Log.d("FC", activities.get(y).getCity() + "-" + city + "  teste");
 
-            if(activities.get(y).getCity().equals(city) && activities.get(y).getName().equals("A")){
-                Log.d("teste", y+  "entradas");
+            if (activities.get(y).getCity().equals(city) && activities.get(y).getName().equals("A")) {
+                Log.d("teste", y + "entradas");
                 t.add(activities.get(y));
             }
 
 
         }
-        Log.d("teste", t.size()+  "taman");
+        Log.d("teste", t.size() + "taman");
         return t;
     }
 

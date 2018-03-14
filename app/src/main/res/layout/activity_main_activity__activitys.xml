@@ -55,15 +55,6 @@
         android:layout_alignStart="@+id/s"
         android:layout_marginTop="29dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/dates"
-        android:layout_above="@+id/s"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="49dp" />
-
     <TabHost
         android:id="@+id/tabHost"
         android:layout_width="match_parent"
@@ -112,7 +103,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/dates" />
+        android:layout_alignParentTop="true" />
 
 </RelativeLayout>

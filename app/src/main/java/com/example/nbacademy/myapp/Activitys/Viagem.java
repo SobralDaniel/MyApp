@@ -20,7 +20,7 @@ public class Viagem {
     private int id;
     private int idAgencia;
 
-    public Viagem(int id, String origem, String destinos, Date dataInicio, Date dataFim){
+    public Viagem(int id, String origem, String destinos, Date dataInicio, Date dataFim) {
         this.id = id;
         this.origem = origem;
         this.destinos = destinos;

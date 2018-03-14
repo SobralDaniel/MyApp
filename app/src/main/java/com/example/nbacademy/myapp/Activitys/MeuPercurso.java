@@ -36,10 +36,10 @@ public class MeuPercurso extends AppCompatActivity {
         if (test == null) {
             test = IntentArrayList.test;
             //test = map.get(id);
-        //    Log.d("AGORA", id +  " conteudo "+ map.get(id).size());
+            //    Log.d("AGORA", id +  " conteudo "+ map.get(id).size());
         } else {
-            IntentArrayList.test =  test;
-           // Log.d("AGORA", id +  " conteudo asdgdgsd "+ map.get(id).size());
+            IntentArrayList.test = test;
+            // Log.d("AGORA", id +  " conteudo asdgdgsd "+ map.get(id).size());
         }
 
         final ListView lista = (ListView) findViewById(R.id.listV);

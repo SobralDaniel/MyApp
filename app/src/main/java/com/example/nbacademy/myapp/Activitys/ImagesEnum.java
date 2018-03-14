@@ -15,7 +15,7 @@ public enum ImagesEnum implements Parcelable {
 
         @Override
         public void writeToParcel(Parcel dest, int flags) {
-dest.writeString("Lisbon");
+            dest.writeString("Lisbon");
         }
     }, Marrocos {
         @Override

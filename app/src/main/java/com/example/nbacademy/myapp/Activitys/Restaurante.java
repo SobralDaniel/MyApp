@@ -9,7 +9,7 @@ public class Restaurante {
     String name;
     int cityId;
 
-    public Restaurante(int id, String name, int cityId){
+    public Restaurante(int id, String name, int cityId) {
         this.id = id;
         this.name = name;
         this.cityId = cityId;
