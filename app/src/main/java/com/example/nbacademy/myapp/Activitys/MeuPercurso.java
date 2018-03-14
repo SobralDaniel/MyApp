@@ -33,10 +33,10 @@ public class MeuPercurso extends AppCompatActivity {
        test = getIntent().getIntegerArrayListExtra("test");
 
         id = getIntent().getIntExtra("id", 0);
-        Map<Integer, List<Integer>> map = Suggestions.map;
+        Map<Integer, ArrayList<Integer>> map = Suggestions.map;
         if (test == null) {
-            test = IntentArrayList.test;
-
+           // test = IntentArrayList.test;
+test = map.get(id);
         } else {
             IntentArrayList.test = test;
         }

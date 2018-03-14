@@ -15,7 +15,7 @@ public class Suggestions {
 
     static List<Activitie> activities = new ArrayList();
     static List<Activitie> activitiesSelected = new ArrayList();
-    static Map<Integer, List<Integer>> map;
+    static Map<Integer, ArrayList<Integer>> map;
     static int ids = 180;
 
     public Suggestions() {
