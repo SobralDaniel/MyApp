@@ -1,6 +1,7 @@
 package com.example.nbacademy.myapp.database.api;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by nbacademy on 10/03/2018.
@@ -50,4 +51,10 @@ public interface ITrip extends ITable {
     int getNumPeople();
 
     void setNumPeople(int numPeople);
+
+    List<IDestination> getDestinations();
+
+    boolean addDestination(IDestination destination);
+
+    boolean removeDestination(long id);
 }

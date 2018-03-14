@@ -5,6 +5,8 @@ package com.example.nbacademy.myapp.database.api;
  */
 public interface ITable {
 
+    void forceUpdateFields();
+
     /**
      * Creates a new entry in a table.
      * @return true - in case of success, false - otherwise
