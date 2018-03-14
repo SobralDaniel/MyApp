@@ -1,4 +1,4 @@
-package com.example.nbacademy.myapp.database.login;
+package com.example.nbacademy.myapp.login;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nbacademy.myapp.R;
-import com.example.nbacademy.myapp.database.DBHelper;
 import com.example.nbacademy.myapp.database.api.IUser;
 import com.example.nbacademy.myapp.database.models.User;
 

@@ -1,4 +1,4 @@
-package com.example.nbacademy.myapp.database.login;
+package com.example.nbacademy.myapp.login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -12,10 +12,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nbacademy.myapp.MainActivity;
 import com.example.nbacademy.myapp.R;
 import com.example.nbacademy.myapp.database.DBHelper;
 import com.example.nbacademy.myapp.database.api.IUser;
-import com.example.nbacademy.myapp.database.models.User;
 import com.facebook.FacebookSdk;
 import com.mukeshsolanki.sociallogin.facebook.FacebookHelper;
 import com.mukeshsolanki.sociallogin.facebook.FacebookListener;
@@ -60,8 +60,8 @@ public class LoginActivity extends AppCompatActivity implements FacebookListener
             @Override
             public void onClick(View v) {
                 // Start the Signup activity
-                Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
-                startActivityForResult(intent, REQUEST_SIGNUP);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -163,21 +163,26 @@ public class LoginActivity extends AppCompatActivity implements FacebookListener
             _emailText.setError(null);
         }
 
-        IUser u = DBHelper.getInstance(null, null, null, 0).findUserByEmail(email);
+//        IUser u = DBHelper.getInstance(null, null, null, 0).findUserByEmail(email);
 
-        if (password.isEmpty() || password.length()
-                < 4 || password.matches("[A-Za-z0-9]+")) {
-            _passwordText.setError("minimum of 8 alphanumeric characters");
-            valid = false;
-        } else if(u == null || !u.getPassword().equals(password)) {
-            _emailText.setError("Incorrect email or password");
-        }
-        else{
-            Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
-            startActivityForResult(intent, REQUEST_SIGNUP);
+//        if (password.isEmpty() || password.length()
+//                < 4 || password.matches("[A-Za-z0-9]+")) {
+//            _passwordText.setError("minimum of 8 alphanumeric characters");
+//            valid = false;
+//        } else if(u == null || !u.getPassword().equals(password)) {
+//            _emailText.setError("Incorrect email or password");
+//        }
+//        else{
+//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//            startActivity(intent);
+//
+//            _passwordText.setError(null);
+//        }
 
-            _passwordText.setError(null);
-        }
+
+
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
 
         return valid;
     }
@@ -187,11 +192,15 @@ public class LoginActivity extends AppCompatActivity implements FacebookListener
     @Override
     public void onFbSignInSuccess(String s, String s1){
         Toast.makeText(this, "Academia Março 2018 Crl "+s1, Toast.LENGTH_SHORT).show();
+        System.out.println("Sucesso------------------------------------------------");
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
     }
 
     @Override
     public void onFbSignInFail(String s){
         Toast.makeText(this, ""+s, Toast.LENGTH_SHORT).show();
+        System.out.println("fail------------------------------------------------");
     }
 
     @Override
@@ -202,11 +211,15 @@ public class LoginActivity extends AppCompatActivity implements FacebookListener
     @Override
     public void onGoogleAuthSignIn(String s, String s1) {
         Toast.makeText(this, "Academia Março 2018 Crl "+s1, Toast.LENGTH_SHORT).show();
+        System.out.println("Sucesso------------------------------------------------");
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
     }
 
     @Override
     public void onGoogleAuthSignInFailed(String s) {
-        Toast.makeText(this, ""+s, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Fogo......"+s, Toast.LENGTH_SHORT).show();
+        System.out.println("Fail------------------------------------------------");;
     }
 
     @Override
