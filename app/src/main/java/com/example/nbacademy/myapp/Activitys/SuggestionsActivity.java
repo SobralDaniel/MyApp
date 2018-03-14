@@ -71,7 +71,9 @@ public class SuggestionsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MeuPercurso.class);
         intent.putIntegerArrayListExtra("test", (ArrayList<Integer>) list);
         IntentArrayList.test = (ArrayList<Integer>) list;
-        Suggestions.map.put(id, list);
+       // Suggestions.map.put(id, list);
+      //  Log.d("AGORA", id + " conteudo para entrar " + list.size());
+       // Log.d("AGORA", id + " conteudo para entrar 2 " + Suggestions.map.size());
         startActivity(intent);
     }
 
@@ -90,7 +92,7 @@ public class SuggestionsActivity extends AppCompatActivity {
         for (int i = 0; i < 5; i++) {
             int t = r.nextInt(5);
             Log.d("ttt", t + "valo ");
-            if(activities.get(t).getName().equals("L")) {
+            if (activities.get(t).getName().equals("L")) {
                 if (!check.contains(t)) {
                     check.add(t);
                     activitiesToSend.add(activities.get(t));

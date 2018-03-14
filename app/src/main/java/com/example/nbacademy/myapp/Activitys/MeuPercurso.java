@@ -20,7 +20,7 @@ import java.util.Random;
 public class MeuPercurso extends AppCompatActivity {
 
     List<Activitie> activities = new ArrayList();
-    ArrayList<Integer> test = new ArrayList<>();
+    List<Integer> test = new ArrayList<>();
     private int id = 0;
 
     @Override
@@ -30,43 +30,43 @@ public class MeuPercurso extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       test = getIntent().getIntegerArrayListExtra("test");
+        test = getIntent().getIntegerArrayListExtra("test");
 
         id = getIntent().getIntExtra("id", 0);
-        Map<Integer, ArrayList<Integer>> map = Suggestions.map;
         if (test == null) {
-           // test = IntentArrayList.test;
-test = map.get(id);
+            test = IntentArrayList.test;
+            //test = map.get(id);
+        //    Log.d("AGORA", id +  " conteudo "+ map.get(id).size());
         } else {
-            IntentArrayList.test = test;
+            IntentArrayList.test =  test;
+           // Log.d("AGORA", id +  " conteudo asdgdgsd "+ map.get(id).size());
         }
 
         final ListView lista = (ListView) findViewById(R.id.listV);
         if (test != null) {
             for (int i = 0; i < test.size(); i++) {
-               int id = test.get(i);
+                int id = test.get(i);
 
-                if(Suggestions.getAct(id) != null && id > 179){
+                if (Suggestions.getAct(id) != null && id > 179) {
                     Log.d("testeForte", id + " entrou aqui");
                     Random rn = new Random();
                     activities.add(Transporte.transportes.get(rn.nextInt(Transporte.getids())));
                     activities.add(Suggestions.getAct(id));
-                }
-                else if(Suggestions.getAct(id) != null){
+                } else if (Suggestions.getAct(id) != null) {
                     Log.d("testeForte", id + " entrou em baixo");
-                    Log.d("ttt", id+"");
+                    Log.d("ttt", id + "");
                     activities.add(Suggestions.getAct(id));
-                }
-                else{
+                } else {
                     activities.add(Transporte.getT(id));
-                    Log.d("testeForte", id + " entrou no ultimooo");}
+                    Log.d("testeForte", id + " entrou no ultimooo");
+                }
 
             }
         }
 
         Suggestions.activitiesSelected = activities;
 
-        Log.d("eee", Suggestions.activitiesSelected.size()+" Filipe" );
+        Log.d("eee", Suggestions.activitiesSelected.size() + " Filipe");
         AdapterListView2 adapter =
                 new AdapterListView2(Suggestions.activitiesSelected, this);
 
@@ -81,7 +81,7 @@ test = map.get(id);
                 newAct(view);
 
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                  //      .setAction("Action", null).show();
+                //      .setAction("Action", null).show();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

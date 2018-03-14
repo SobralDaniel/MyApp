@@ -15,11 +15,11 @@ public class Suggestions {
 
     static List<Activitie> activities = new ArrayList();
     static List<Activitie> activitiesSelected = new ArrayList();
-    static Map<Integer, ArrayList<Integer>> map;
+   // static Map<Integer, ArrayList<Integer>> map;
     static int ids = 180;
 
     public Suggestions() {
-        map = new ArrayMap<>();
+     //   map = new ArrayMap<>();
         activities.add(new Activitie(1, "Istambul", "Mesquita Azul", "L", null, 0, 4.5, 1, 0.0, 0.0));
         activities.add(new Activitie(2, "Istambul", "Museu Hagia Sophia e Igreja (Ayasofya)", "L", null, 8.55, 4.5, 2, 0.0, 0.0));
         activities.add(new Activitie(3, "Istambul", "Grande Bazar", "L", null, 0, 4.4, 3, 0.0, 0.0));
