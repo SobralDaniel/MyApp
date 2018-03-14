@@ -1,16 +1,11 @@
-<<<<<<< HEAD:app/src/main/java/com/example/nbacademy/myapp/Activitys/AlimentacaoActivity.java
 package com.example.nbacademy.myapp.Activitys;
-=======
-package com.example.nbacademy.myapp;
->>>>>>> c882927667e20511c4584bba054b9a97ed9c2043:app/src/main/java/com/example/nbacademy/myapp/AlimentacaoActivity.java
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-
-import com.example.nbacademy.myapp.R;
 
 import com.example.nbacademy.myapp.R;
 

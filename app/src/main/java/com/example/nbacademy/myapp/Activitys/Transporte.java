@@ -9,6 +9,7 @@ import java.util.List;
 public class Transporte {
 
     static List<Activitie> transportes = new ArrayList();
+    private static int ids;
 
     public Transporte() {
 
@@ -17,7 +18,7 @@ public class Transporte {
         transportes.add(new Activitie(998, "Avião", "T", "Transporte", null, 100.0,  0.0, 0.0, 0.0 ,0.0));
         transportes.add(new Activitie(997, "Metro", "T", "Transporte", null, 7.5,  0.0, 0.0, 0.0 ,0.0));
         transportes.add(new Activitie(996, "Caminhada", "T", "Transporte", null, 0.0,  0.0, 0.0, 0.0 ,0.0));
-
+        ids = 5;
     }
 
     public static Activitie getT(int id){
@@ -29,5 +30,9 @@ public class Transporte {
             }
         }
         return toReturn;
+    }
+
+    public static int getids(){
+        return ids;
     }
 }

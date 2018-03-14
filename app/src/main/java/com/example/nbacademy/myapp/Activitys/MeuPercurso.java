@@ -14,6 +14,7 @@ import com.example.nbacademy.myapp.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MeuPercurso extends AppCompatActivity {
 
@@ -42,17 +43,27 @@ public class MeuPercurso extends AppCompatActivity {
             for (int i = 0; i < test.size(); i++) {
                int id = test.get(i);
 
-                if(Suggestions.getAct(id) != null){
-                    activities.add(Suggestions.activities.get(id));
+                if(Suggestions.getAct(id) != null && id > 179){
+                    Log.d("testeForte", id + " entrou aqui");
+                    Random rn = new Random();
+                    activities.add(Transporte.transportes.get(rn.nextInt(Transporte.getids())));
+                    activities.add(Suggestions.getAct(id));
                 }
-                else
+                else if(Suggestions.getAct(id) != null){
+                    Log.d("testeForte", id + " entrou em baixo");
+                    Log.d("ttt", id+"");
+                    activities.add(Suggestions.getAct(id));
+                }
+                else{
                     activities.add(Transporte.getT(id));
+                    Log.d("testeForte", id + " entrou no ultimooo");}
 
             }
         }
 
         Suggestions.activitiesSelected = activities;
 
+        Log.d("eee", Suggestions.activitiesSelected.size()+" Filipe" );
         AdapterListView2 adapter =
                 new AdapterListView2(Suggestions.activitiesSelected, this);
 

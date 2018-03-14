@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="@color/accent_material_light"
             android:text="Titulo"
-            android:textSize="30dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/lista_activitie_personalizada_descricao"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="descriçao"
-            android:textSize="20dp" />
+            android:textSize="15dp" />
 
     </LinearLayout>
 

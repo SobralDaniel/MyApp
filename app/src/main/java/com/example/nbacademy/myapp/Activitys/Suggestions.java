@@ -14,7 +14,7 @@ public class Suggestions {
 
     static List<Activitie> activities  = new ArrayList();
     static List<Activitie> activitiesSelected  = new ArrayList();
-    static int ids = 4;
+    static int ids = 180;
 
     public Suggestions(){
 
@@ -201,9 +201,24 @@ public class Suggestions {
         return toReturn;
     }
 
+
     public static void add(String name, String cidade, String tipo, double preco, double inici, double fim, double ranking){
-       activitiesSelected.add(new Activitie(ids,cidade, name, tipo, null, preco,ranking,0,inici, fim));
+        Log.d("add", name);
+
+        Log.d("add", cidade);
+        Log.d("add", tipo);
+        Log.d("add", preco + "");
+        Log.d("add", inici + "");
+        Log.d("add", fim + "");
+        Log.d("add", ranking + "");
+
+        Log.d("add", ids + "");
+
+
+       activities.add(new Activitie(ids,cidade, name, tipo, null, preco,ranking,0,inici, fim));
         ids++;
+
+        Log.d("add", ids + "");
     }
 
     public static int getlast(){
@@ -223,6 +238,7 @@ public class Suggestions {
             if(activities.get(y).getCity().equals(city)){
                 Log.d("teste", y+  "entradas");
                 t.add(activities.get(y));
+                activitiesSelected.add(activities.get(y));
             }
 
 
