@@ -73,6 +73,7 @@ public class Cost extends Table implements ICost {
     private void updateFields(){
         if(getFromDB()){
             forceUpdateFields();
+            resetTimerDB();
         }
     }
 

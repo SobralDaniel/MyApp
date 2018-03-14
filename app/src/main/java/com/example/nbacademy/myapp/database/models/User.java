@@ -71,12 +71,14 @@ public class User extends Table implements IUser {
     private void updateFields(){
         if(getFromDB()){
             forceUpdateFields();
+            resetTimerDB();
         }
     }
 
     @Override
     public void setId(long id){
         this.id = id;
+        updatedFields.put(UserContract.UserEntry._ID,true);
     }
 
     @Override

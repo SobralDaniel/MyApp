@@ -95,6 +95,7 @@ public class Destination extends Table implements IDestination {
     private void updateFields(){
         if(getFromDB()){
             forceUpdateFields();
+            resetTimerDB();
         }
     }
 

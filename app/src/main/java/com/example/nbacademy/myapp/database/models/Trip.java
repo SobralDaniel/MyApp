@@ -89,6 +89,7 @@ public class Trip extends Table implements ITrip {
     private void updateFields(){
         if(getFromDB()){
             forceUpdateFields();
+            resetTimerDB();
         }
     }
 

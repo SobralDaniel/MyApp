@@ -79,6 +79,7 @@ public class Activity extends Table implements IActivity {
     private void updateFields(){
         if(getFromDB()){
             forceUpdateFields();
+            resetTimerDB();
         }
     }
 

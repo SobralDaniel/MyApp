@@ -38,7 +38,7 @@ public class Category extends Table implements ICategory {
     }
 
     public void forceUpdateFields(){
-        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getReadableDatabase();
+        SQLiteDatabase db = DBHelper.getInstance(null).getReadableDatabase();
 
         String[] projection = {CategoryContract.CategoryEntry._ID,CategoryContract.CategoryEntry.COLUMN_NAME_NAME,
                 CategoryContract.CategoryEntry.COLUMN_NAME_FK_DESTINATION_ID
@@ -66,6 +66,7 @@ public class Category extends Table implements ICategory {
     private void updateFields(){
         if(getFromDB()){
             forceUpdateFields();
+            resetTimerDB();
         }
     }
 
@@ -131,7 +132,7 @@ public class Category extends Table implements ICategory {
     
     @Override
     public boolean create() {
-        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+        SQLiteDatabase db = DBHelper.getInstance(null).getWritableDatabase();
 
         SimpleDateFormat sdf = new SimpleDateFormat(DBHelper.DATE_FORMAT_DB);
 
@@ -160,7 +161,7 @@ public class Category extends Table implements ICategory {
 
         int nRowsAffected = 0;
         if(values.size() > 0){
-            SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+            SQLiteDatabase db = DBHelper.getInstance(null).getWritableDatabase();
             String selection = CategoryContract.CategoryEntry._ID + " =";
             String[] selectionArgs = {id + ""};
             nRowsAffected = db.update(CategoryContract.CategoryEntry.TABLE_NAME,values,selection,selectionArgs);
@@ -172,7 +173,7 @@ public class Category extends Table implements ICategory {
 
     @Override
     public boolean delete() {
-        SQLiteDatabase db = DBHelper.getInstance(null,null,null,0).getWritableDatabase();
+        SQLiteDatabase db = DBHelper.getInstance(null).getWritableDatabase();
         String selection = CategoryContract.CategoryEntry._ID + " =";
         String[] selectionArgs = {id + ""};
         int nRowsAffected = db.delete(CategoryContract.CategoryEntry.TABLE_NAME,selection,selectionArgs);
