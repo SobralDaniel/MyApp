@@ -30,7 +30,7 @@ public class MockupData {
         u.setNif("123456789");
         u.setPassword("crespo");
         u.setPhoneNumber("912023928");
-        //u.create();
+        u.create();
         return u;
     }
 
@@ -65,7 +65,7 @@ public class MockupData {
         destination.setDestinationName("Perú");
         destination.setPercDinner(80);
         destination.setPercLunch(70);
-        destination.setPercShops(20);
+        destination.setPercPurchase(20);
         destination.setPercExtras(10);
         destination.setTemperature(23.0);
         destination.setTimezone("GMT + 0");
@@ -82,7 +82,7 @@ public class MockupData {
         destination2.setDestinationName("Madrid");
         destination2.setPercDinner(85);
         destination2.setPercLunch(80);
-        destination2.setPercShops(20);
+        destination2.setPercPurchase(20);
         destination2.setPercExtras(10);
         destination2.setTemperature(24.0);
         destination2.setTimezone("GMT + 1");
@@ -99,7 +99,7 @@ public class MockupData {
         destination3.setDestinationName("Porto");
         destination3.setPercDinner(85);
         destination3.setPercLunch(80);
-        destination3.setPercShops(20);
+        destination3.setPercPurchase(20);
         destination3.setPercExtras(10);
         destination3.setTemperature(21.0);
         destination3.setTimezone("GMT + 0");
