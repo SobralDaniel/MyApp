@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.example.nbacademy.myapp.database.MockupData;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -52,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        //MockupData mockupData = new MockupData(ctx);
+        //mockupData.getUser();
+
     }
 
     @Override

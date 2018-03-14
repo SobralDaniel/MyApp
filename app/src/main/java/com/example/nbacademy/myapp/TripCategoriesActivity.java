@@ -22,8 +22,6 @@ public class TripCategoriesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip_categories);
 
-        //final RadioButton accomodation = (RadioButton) findViewById(R.id.accomodation);
-        //final RadioButton food = (RadioButton) findViewById(R.id.food);
         ImageView addButton = (ImageView) findViewById(R.id.addCategory);
 
         categoriesList.add("Food");
@@ -83,7 +81,7 @@ public class TripCategoriesActivity extends AppCompatActivity {
             }
         });*/
 
-        Button backButton = (Button) findViewById(R.id.doneButton);
+        Button backButton = (Button) findViewById(R.id.backButton);
         Button nextButton = (Button) findViewById(R.id.nextButton);
 
         final Intent backIntent = new Intent(this, TripDetailsActivity.class);

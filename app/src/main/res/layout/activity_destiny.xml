@@ -26,11 +26,26 @@
             android:textSize="30dp"
             android:textAlignment="center" />
 
+        <ScrollView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView2"
+            android:layout_weight="0.06">
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:id="@+id/destination"
+                android:layout_weight="0.12">
+            </ListView>
+        </ScrollView>
+
         <ImageView
             android:layout_width="115dp"
             android:layout_height="48dp"
             android:id="@+id/addDestiny"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/buttonadd"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.01" />
@@ -55,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Back"
-                android:id="@+id/doneButton"/>
+                android:id="@+id/backButton"/>
             <Button
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
