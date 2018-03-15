@@ -5,22 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity_2"
-    android:orientation="horizontal">
+    android:orientation="vertical"
+    tools:context=".MainActivity_2">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="20dp">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Actividades"
-        android:id="@+id/Actividades"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="34dp" />
+        <Button
+            android:id="@+id/buttonCustos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Custos" />
 
-
-
+        <Button
+            android:id="@+id/Actividades"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="34dp"
+            android:layout_weight="1"
+            android:text="Actividades" />
+    </LinearLayout>
 
 
 </LinearLayout>

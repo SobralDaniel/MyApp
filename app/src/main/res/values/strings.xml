@@ -16,4 +16,30 @@
         completions."
     </string>
     <string name="facebook_app_id">156277038393680</string>
+    <string-array name="order">
+        <item>dias</item>
+        <item>custos</item>
+        <item>destinos</item>
+        <item>datas</item>
+    </string-array>
+    <string-array name="alojamento">
+        <item>hotel</item>
+    </string-array>
+    <string-array name="alimentacao">
+        <item>almoço</item>
+        <item>jantar</item>
+    </string-array>
+    <string-array name="transporte">
+        <item>aviao</item>
+        <item>taxi</item>
+    </string-array>
+    <string-array name="lazer">
+        <item>cinema</item>
+    </string-array>
+    <string-array name="compras">
+        <item>primark</item>
+    </string-array>
+    <string-array name="extras">
+        <item>pilhas</item>
+    </string-array>
 </resources>

@@ -55,6 +55,8 @@
             android:name=".Activitys.NewActivity" />
         <activity
             android:name=".Activitys.AlimentacaoActivity" />
+        <activity
+            android:name=".grupo1.Main3Activity" />
     </application>
 
     <meta-data
